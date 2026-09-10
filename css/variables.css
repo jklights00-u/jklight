@@ -97,3 +97,39 @@ body {
   background: var(--gold-500);
   color: #000;
 }
+
+/* Global Form Select & Option Dark Luxury Styling */
+select,
+option,
+.form-control,
+.form-select {
+  color-scheme: dark;
+}
+
+select {
+  background-color: var(--bg-surface);
+  color: var(--text-white);
+}
+
+select option,
+.form-control option,
+.form-select option,
+option {
+  background-color: #141721 !important;
+  color: #f5f6f8 !important;
+  padding: 12px 16px !important;
+  font-size: 0.95rem;
+}
+
+select option:hover,
+select option:focus,
+select option:checked,
+select option:selected,
+.form-control option:hover,
+.form-control option:focus,
+.form-control option:checked,
+.form-control option:selected {
+  background-color: #d4af37 !important;
+  color: #000000 !important;
+}
+
