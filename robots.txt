@@ -1,0 +1,14 @@
+# robots.txt for JK Lights Gandhinagar
+User-agent: *
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+
+# Disallow private admin dashboard and backend scripts
+Disallow: /admin.html
+Disallow: /dist/
+
+# Host and Sitemap reference
+Sitemap: https://jklights.com/sitemap.xml
+Sitemap: sitemap.xml

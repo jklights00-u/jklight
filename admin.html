@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard & Billing | JK Lights Gandhinagar</title>
+  
+  <!-- Disallow Search Engine Indexing for Admin Dashboard -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
+  
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- ================= ADMIN TOP NAVBAR ================= -->
+  <header class="admin-navbar">
+    <div class="admin-nav-left">
+      <a href="admin.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+        <img src="assets/logo.jpg" alt="JK Lights Logo" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--gold-400);" />
+        <div>
+          <span style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 800; color: #fff; letter-spacing: 0.05em;">JK LIGHTS</span>
+          <div style="font-size: 0.65rem; color: var(--gold-400); text-transform: uppercase;">Gandhinagar Showroom Management</div>
+        </div>
+      </a>
+      <span class="admin-badge">Admin Portal</span>
+    </div>
+
+    <div class="admin-nav-right">
+      <button class="btn btn-glass btn-sm" id="btnExportData" title="Download backup of products and inquiries">
+        <i class="fa-solid fa-download"></i> Backup JSON
+      </button>
+
+      <button class="btn btn-glass btn-sm" id="btnResetFactoryDemo" title="Reset sample catalog data">
+        <i class="fa-solid fa-rotate-left"></i> Reset Demo
+      </button>
+
+      <a href="index.html" class="btn btn-gold btn-sm" target="_blank">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Storefront
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= ADMIN MAIN LAYOUT ================= -->
+  <div class="admin-layout">
+    <!-- Sidebar Menu -->
+    <aside class="admin-sidebar">
+      <div class="admin-menu-item active" data-target="panelDashboard">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span>Dashboard</span>
+      </div>
+
+      <div class="admin-menu-item" data-target="panelInvoices">
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+        <span>Invoices & Billing</span>
+      </div>
+
+      <div class="admin-menu-item" data-target="panelSlider">
+        <i class="fa-solid fa-images"></i>
+        <span>Hero Slider & Banners</span>
+      </div>
+
+      <div class="admin-menu-item" data-target="panelProducts">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span>Products Catalog</span>
+      </div>
+
+      <div class="admin-menu-item" data-target="panelCategories">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>Categories Manager</span>
+      </div>
+
+      <div class="admin-menu-item" data-target="panelInquiries">
+        <i class="fa-solid fa-envelope-open-text"></i>
+        <span>Inquiries & Leads</span>
+      </div>
+
+      <div class="admin-menu-item" data-target="panelBlogs">
+        <i class="fa-solid fa-newspaper"></i>
+        <span>Design Blogs & Articles</span>
+      </div>
+
+      <div class="admin-menu-item" data-target="panelOwners">
+        <i class="fa-solid fa-user-tie"></i>
+        <span>Owners & Leadership</span>
+      </div>
+
+      <div class="admin-menu-item" data-target="panelSettings">
+        <i class="fa-solid fa-sliders"></i>
+        <span>Store & Showroom</span>
+      </div>
+
+      <div style="margin-top: auto; padding: 16px; background: rgba(255,255,255,0.02); border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+        <div style="font-size: 0.75rem; color: var(--gold-400); font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">Showroom Location</div>
+        <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4;">
+          2nd Floor, VTC Complex, Above Kabir World, Kudasan, Gandhinagar - 382421
+        </div>
+      </div>
+    </aside>
+
+    <!-- Content Workspace -->
+    <main class="admin-content">
+
+      <!-- PANEL 1: DASHBOARD OVERVIEW -->
+      <section class="admin-view-panel active" id="panelDashboard">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">Showroom Overview</h1>
+            <p class="panel-subtitle">Real-time performance metrics, billing status, and customer inquiries</p>
+          </div>
+        </div>
+
+        <!-- Metrics Cards -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon-box">
+              <i class="fa-solid fa-file-invoice-dollar" style="color: var(--gold-400);"></i>
+            </div>
+            <div>
+              <div class="metric-val" id="metricTotalInvoiced">₹ 53,798</div>
+              <div class="metric-label">Total Invoiced</div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-box">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <div>
+              <div class="metric-val" id="metricTotalProducts">6</div>
+              <div class="metric-label">Total Fixtures</div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-box">
+              <i class="fa-solid fa-user-clock"></i>
+            </div>
+            <div>
+              <div class="metric-val" id="metricActiveInquiries">2</div>
+              <div class="metric-label">Active Leads</div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-box">
+              <i class="fa-brands fa-whatsapp" style="color: var(--whatsapp);"></i>
+            </div>
+            <div>
+              <div class="metric-val" id="metricWhatsAppClicks">18+</div>
+              <div class="metric-label">WhatsApp Leads</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Inquiries Table -->
+        <div class="table-card">
+          <div class="table-toolbar">
+            <h3 style="color: #fff; font-size: 1.1rem;"><i class="fa-solid fa-bell" style="color: var(--gold-400); margin-right: 8px;"></i> Recent Customer Inquiries</h3>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Space / Fixture</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="recentInquiriesTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PANEL 2: INVOICES & BILLING STUDIO -->
+      <section class="admin-view-panel" id="panelInvoices">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">Invoices & Quotations Studio</h1>
+            <p class="panel-subtitle">Create manual tax invoices, generate printable luxury PDFs, and track customer payments</p>
+          </div>
+          <button class="btn btn-gold" id="btnCreateManualInvoice">
+            <i class="fa-solid fa-plus"></i> Create Manual Invoice
+          </button>
+        </div>
+
+        <!-- Invoice Metrics -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon-box">
+              <i class="fa-solid fa-receipt"></i>
+            </div>
+            <div>
+              <div class="metric-val" id="invMetricCount">2</div>
+              <div class="metric-label">Invoices Generated</div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-box">
+              <i class="fa-solid fa-circle-check" style="color: #10b981;"></i>
+            </div>
+            <div>
+              <div class="metric-val" id="invMetricPaid">₹ 15,336</div>
+              <div class="metric-label">Paid Amount</div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-box">
+              <i class="fa-solid fa-clock" style="color: #f59e0b;"></i>
+            </div>
+            <div>
+              <div class="metric-val" id="invMetricPending">₹ 38,462</div>
+              <div class="metric-label">Pending / Advance Balance</div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-box">
+              <i class="fa-solid fa-percent" style="color: var(--gold-400);"></i>
+            </div>
+            <div>
+              <div class="metric-val">18% GST</div>
+              <div class="metric-label">9% CGST + 9% SGST (State: 24)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Invoices List Table -->
+        <div class="table-card">
+          <div class="table-toolbar">
+            <div class="admin-search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="invoiceSearchInput" placeholder="Search by invoice # or customer name..." />
+            </div>
+
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <select id="invoiceStatusFilter" class="form-control" style="width: 170px; padding: 6px 12px; font-size: 0.85rem;">
+                <option value="all">All Invoices</option>
+                <option value="paid">Paid</option>
+                <option value="advance">Advance Received</option>
+                <option value="estimate">Estimate / Pending</option>
+              </select>
+            </div>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Invoice #</th>
+                <th>Customer & Phone</th>
+                <th>Issue Date</th>
+                <th>Space / Fixture Scope</th>
+                <th>Total (INR)</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="invoicesTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PANEL 3: HERO SLIDER & BANNERS (CRUD) -->
+      <section class="admin-view-panel" id="panelSlider">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">Hero Slider & Banners</h1>
+            <p class="panel-subtitle">Manage homepage carousel slides, promotional offer banners, wall light highlights, and CTA links</p>
+          </div>
+          <button class="btn btn-gold" id="btnAddNewSlide">
+            <i class="fa-solid fa-plus"></i> Add New Slide
+          </button>
+        </div>
+
+        <div class="table-card">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Banner Preview</th>
+                <th>Slide Title & Highlights</th>
+                <th>Offer Badge</th>
+                <th>CTA Button & Link</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="slidersTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PANEL 4: PRODUCTS CATALOG (CRUD) -->
+      <section class="admin-view-panel" id="panelProducts">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">Lighting Fixtures Catalog</h1>
+            <p class="panel-subtitle">Manage all chandeliers, pendants, ceiling and outdoor lights in your showroom</p>
+          </div>
+          <button class="btn btn-gold" id="btnAddNewProduct">
+            <i class="fa-solid fa-plus"></i> Add New Fixture
+          </button>
+        </div>
+
+        <div class="table-card">
+          <div class="table-toolbar">
+            <div class="admin-search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="productSearchInput" placeholder="Filter fixtures by name or category..." />
+            </div>
+
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <select id="productCategoryFilter" class="form-control" style="width: 200px; padding: 6px 12px; font-size: 0.85rem;">
+                <option value="all">All Categories</option>
+                <option value="chandeliers">Grand Chandeliers</option>
+                <option value="double-height">Double Height Chandeliers</option>
+                <option value="wall">Designer Wall Lights</option>
+                <option value="pendant">Hanging Pendants</option>
+                <option value="table-floor">Table & Floor Lamps</option>
+                <option value="ceiling">Ceiling Lights</option>
+                <option value="track">48V Magnetic Tracks</option>
+                <option value="outdoor">Outdoor Lights</option>
+                <option value="smart">Smart Lights</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Quick Category Filter Pills with Live Counts -->
+          <div class="category-jump-bar admin-cat-tabs" id="adminCategoryTabs" style="margin: 0 16px 16px 16px; padding: 6px 10px; background: rgba(0,0,0,0.35);">
+            <!-- Rendered by JS -->
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Product / Model</th>
+                <th>Price (INR)</th>
+                <th>Showroom Stock</th>
+                <th>Collection</th>
+                <th>Badge</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="productsTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PANEL: CATEGORIES & COLLECTIONS MANAGER (CRUD) -->
+      <section class="admin-view-panel" id="panelCategories">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">Categories & Collections Manager</h1>
+            <p class="panel-subtitle">Create and organize lighting categories, upload custom icons, and manage showroom collections</p>
+          </div>
+          <button class="btn btn-gold" id="btnAddNewCategory">
+            <i class="fa-solid fa-plus"></i> Add New Category
+          </button>
+        </div>
+
+        <div class="table-card">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Category Icon</th>
+                <th>Category Name</th>
+                <th>Slug / ID</th>
+                <th>Linked Fixtures</th>
+                <th>Description</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="categoriesTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PANEL 5: INQUIRIES & LEADS -->
+      <section class="admin-view-panel" id="panelInquiries">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">Consultation Leads & Inquiries</h1>
+            <p class="panel-subtitle">Track incoming requests, follow up with customers, and record visits</p>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Phone Number</th>
+                <th>Space Type</th>
+                <th>Details & Preferred Date</th>
+                <th>Status</th>
+                <th>Direct Connect</th>
+              </tr>
+            </thead>
+            <tbody id="inquiriesTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PANEL: DESIGN BLOGS & ARTICLES (CRUD) -->
+      <section class="admin-view-panel" id="panelBlogs">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">Design Journal & Blog Manager</h1>
+            <p class="panel-subtitle">Create, edit, publish, and delete design articles, architectural lighting guides, and trends for your Gandhinagar showroom</p>
+          </div>
+          <button class="btn btn-gold" id="btnAddNewBlog">
+            <i class="fa-solid fa-plus"></i> Add New Blog Article
+          </button>
+        </div>
+
+        <div class="table-card">
+          <div class="table-toolbar">
+            <div class="admin-search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="blogSearchInput" placeholder="Filter articles by title, author, or category..." />
+            </div>
+
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <select id="blogCategoryFilter" class="form-control" style="width: 200px; padding: 6px 12px; font-size: 0.85rem;">
+                <option value="all">All Categories</option>
+                <option value="Design Guide">Design Guide</option>
+                <option value="Lighting 101">Lighting 101</option>
+                <option value="Trends 2026">Trends 2026</option>
+                <option value="Architectural">Architectural</option>
+                <option value="Showroom News">Showroom News</option>
+                <option value="Smart Lighting">Smart Lighting</option>
+                <option value="Luxury Styling">Luxury Styling</option>
+              </select>
+            </div>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Cover Image</th>
+                <th>Article Title & Summary</th>
+                <th>Category</th>
+                <th>Author & Date</th>
+                <th>Read Time</th>
+                <th>Featured</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="blogsTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PANEL 6: OWNERS & LEADERSHIP (NEW!) -->
+      <section class="admin-view-panel" id="panelOwners">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">Showroom Founders & Leadership</h1>
+            <p class="panel-subtitle">Official leadership profiles, design credentials, and executive direct contact</p>
+          </div>
+        </div>
+
+        <div class="owners-grid">
+          <!-- Sandip Patel Card -->
+          <div class="owner-card">
+            <div class="owner-img-wrap">
+              <span class="owner-badge-tag"><i class="fa-solid fa-crown" style="color: var(--gold-400);"></i> Founder & Managing Director</span>
+              <img src="assets/owners/sandip-patel.jpg" alt="Sandip Patel - Founder & MD" class="owner-img" />
+            </div>
+            <div class="owner-details">
+              <h3 class="owner-name">Sandip Patel</h3>
+              <div class="owner-role">Founder & Managing Director | Senior Lighting Architect</div>
+              <p class="owner-bio">
+                Visionary founder behind JK Lights Gandhinagar with 12+ years of expertise in luxury residential illumination. Pioneered custom double-height crystal chandelier installations, 48V magnetic track layouts, and architectural lighting designs across elite villas and bungalows in Gandhinagar, Gift City, and Ahmedabad.
+              </p>
+              
+              <div class="owner-highlights">
+                <span class="owner-pill"><i class="fa-solid fa-award" style="color: var(--gold-400);"></i> 12+ Years Experience</span>
+                <span class="owner-pill"><i class="fa-solid fa-gem" style="color: var(--gold-400);"></i> Duplex Chandelier Specialist</span>
+                <span class="owner-pill"><i class="fa-solid fa-location-dot" style="color: var(--gold-400);"></i> Kudasan Showroom</span>
+              </div>
+
+              <div style="display: flex; gap: 12px; margin-top: auto;">
+                <a href="https://wa.me/919898091234?text=Hello%20Sandip%20Patel%20Sir!%20I%20would%20like%20to%20discuss%20a%20luxury%20lighting%20project." target="_blank" class="btn btn-whatsapp" style="flex: 1;">
+                  <i class="fa-brands fa-whatsapp"></i> Chat with Sandip Patel
+                </a>
+                <a href="tel:+919898091234" class="btn btn-glass" title="Call Direct">
+                  <i class="fa-solid fa-phone"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jigisha Prajapati Card -->
+          <div class="owner-card">
+            <div class="owner-img-wrap">
+              <span class="owner-badge-tag"><i class="fa-solid fa-star" style="color: var(--gold-400);"></i> Co-Founder & Creative Director</span>
+              <img src="C:/Users/LENOVO/.gemini/antigravity-ide/brain/99066271-2e98-4272-a01b-e76238c1fe32/.user_uploaded/media_1788870614385.jpg" alt="Jigisha Prajapati - Co-Founder & Creative Director" class="owner-img" onerror="this.src='assets/owners/jigisha-prajapati.png'" />
+            </div>
+            <div class="owner-details">
+              <h3 class="owner-name">Jigisha Prajapati</h3>
+              <div class="owner-role">Co-Founder & Creative Director | Interior Lighting Stylist</div>
+              <p class="owner-bio">
+                Leads creative aesthetics, color temperature harmonization (2700K Warm vs 4000K Neutral), and luxury decorative luminaire curation at JK Lights. Specializes in tailoring personalized lighting blueprints that enhance natural teak woodwork, Italian marble textures, and modern false ceiling coves.
+              </p>
+
+              <div class="owner-highlights">
+                <span class="owner-pill"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--gold-400);"></i> 10+ Years Experience</span>
+                <span class="owner-pill"><i class="fa-solid fa-palette" style="color: var(--gold-400);"></i> Interior Lighting Stylist</span>
+                <span class="owner-pill"><i class="fa-solid fa-lightbulb" style="color: var(--gold-400);"></i> Mood & Ambiance Curator</span>
+              </div>
+
+              <div style="display: flex; gap: 12px; margin-top: auto;">
+                <a href="https://wa.me/919898091234?text=Hello%20Jigisha%20Ma'am!%20I%20would%20like%20expert%20lighting%20styling%20advice%20for%20my%20residence." target="_blank" class="btn btn-whatsapp" style="flex: 1;">
+                  <i class="fa-brands fa-whatsapp"></i> Chat with Jigisha Prajapati
+                </a>
+                <a href="tel:+919898091234" class="btn btn-glass" title="Call Direct">
+                  <i class="fa-solid fa-phone"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANEL 7: STORE & SHOWROOM SETTINGS -->
+      <section class="admin-view-panel" id="panelSettings">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">Showroom & Store Settings</h1>
+            <p class="panel-subtitle">Update contact details, Kudasan showroom address, hours, and announcements</p>
+          </div>
+        </div>
+
+        <div class="table-card" style="padding: 32px;">
+          <form id="storeSettingsForm">
+            <div class="settings-grid">
+              <div class="form-group">
+                <label class="form-label">Store / Brand Name</label>
+                <input type="text" name="name" class="form-control" value="JK Lights" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">City & State</label>
+                <input type="text" name="city" class="form-control" value="Gandhinagar, Gujarat" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Full Showroom Address (Google My Business)</label>
+              <textarea name="address" class="form-control" rows="2" required>2nd Floor, VTC Complex (Vrundavan Trade Center), Above Kabir World, Reliance Cross Road, Kudasan, Gandhinagar - 382421</textarea>
+            </div>
+
+            <div class="settings-grid">
+              <div class="form-group">
+                <label class="form-label">Landmark</label>
+                <input type="text" name="landmark" class="form-control" value="Above Kabir World, Opp. Kanam Farm" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">WhatsApp Contact Number (Without + or spaces)</label>
+                <input type="text" name="whatsapp" class="form-control" value="919898091234" required />
+              </div>
+            </div>
+
+            <div class="settings-grid">
+              <div class="form-group">
+                <label class="form-label">Visiting Hours (Mon - Sat)</label>
+                <input type="text" name="timingsWeekdays" class="form-control" value="Mon - Sat: 10:00 AM - 9:30 PM" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Visiting Hours (Sunday)</label>
+                <input type="text" name="timingsSunday" class="form-control" value="Sunday: 11:00 AM - 8:00 PM" />
+              </div>
+            </div>
+
+            <!-- Showroom / Shop Photo Editor -->
+            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 22px; margin-top: 24px; margin-bottom: 24px;">
+              <h3 style="color: var(--gold-300); font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-camera" style="color: var(--gold-400);"></i> Showroom &amp; Shop Showcase Photo
+              </h3>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 18px;">
+                This main photo is showcased on the Homepage (About section), About Us page, and Contact Navigation cards across the website.
+              </p>
+
+              <div style="display: grid; grid-template-columns: 240px 1fr; gap: 24px; align-items: center;">
+                <!-- Live Thumbnail Preview -->
+                <div style="position: relative; width: 240px; height: 160px; border-radius: var(--radius-md); overflow: hidden; border: 2px solid var(--gold-400); background: #000; box-shadow: 0 8px 24px rgba(0,0,0,0.5);">
+                  <img id="showroomPhotoPreview" src="assets/showroom.jpg" alt="Showroom Photo Preview" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <span style="position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); color: var(--gold-300); padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; border: 1px solid var(--gold-400);">Live</span>
+                </div>
+
+                <!-- Input / Upload Controls -->
+                <div>
+                  <div class="form-group" style="margin-bottom: 12px;">
+                    <label class="form-label">Photo File Path or Image URL</label>
+                    <input type="text" name="showroomImage" id="showroomImageInput" class="form-control" value="assets/showroom.jpg" placeholder="assets/showroom.jpg or https://..." />
+                  </div>
+
+                  <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                    <label class="btn btn-glass btn-sm" style="cursor: pointer; margin: 0; display: inline-flex; align-items: center; gap: 8px;">
+                      <i class="fa-solid fa-upload"></i> Upload New Photo
+                      <input type="file" id="showroomPhotoFileInput" accept="image/*" style="display: none;" />
+                    </label>
+                    <button type="button" class="btn btn-glass btn-sm" id="btnResetShowroomPhoto" title="Reset to default showroom image">
+                      <i class="fa-solid fa-rotate-left"></i> Reset Default
+                    </button>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">(Supports JPG, PNG, WEBP — automatically saved to browser storage)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-gold" style="margin-top: 12px;">
+              <i class="fa-solid fa-floppy-disk"></i> Save Settings &amp; Sync Storefront
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Admin Footer -->
+      <footer style="margin-top: 40px; padding: 20px 0; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.82rem; flex-wrap: wrap; gap: 12px;">
+        <div>© 2026 JK Lights Gandhinagar — Showroom Admin &amp; Billing Portal</div>
+        <div>Powered by <a href="#" target="_blank" rel="noopener" style="color: var(--gold-400); font-weight: 600; text-decoration: none;">Khushi Creative Tech</a></div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- ================= CREATE MANUAL INVOICE MODAL ================= -->
+  <div class="modal-backdrop" id="manualInvoiceModal">
+    <div class="modal-dialog" style="max-width: 860px;">
+      <button class="modal-close-btn" id="btnCloseManualInvoiceModal"><i class="fa-solid fa-xmark"></i></button>
+      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 8px;">Create Manual Tax Invoice / Quotation</h2>
+      <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 20px;">
+        Add client details, select or enter custom lighting fixtures, apply discounts, and generate official GST invoice.
+      </p>
+
+      <form id="manualInvoiceForm">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Invoice Number</label>
+            <input type="text" name="invoiceId" id="manualInvIdInput" class="form-control" readonly style="font-family: monospace; font-weight: 700; color: var(--gold-400);" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Issue Date</label>
+            <input type="date" name="invoiceDate" id="manualInvDateInput" class="form-control" required />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Customer Name *</label>
+            <input type="text" name="customerName" class="form-control" placeholder="e.g. Rajesh Patel" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" name="phone" class="form-control" placeholder="+91 98980 12345" required />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Site / Delivery Address</label>
+            <input type="text" name="address" class="form-control" placeholder="e.g. Bungalow 14, Pramukh Elysium, Kudasan, Gandhinagar" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Project / Space Scope</label>
+            <input type="text" name="roomType" class="form-control" placeholder="e.g. 4BHK Villa / Duplex Living Room" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Payment / Quotation Status</label>
+            <select name="status" class="form-control">
+              <option value="Paid in Full">Paid in Full (100% Cleared)</option>
+              <option value="50% Advance Received">50% Advance Received</option>
+              <option value="Quotation / Payment Pending" selected>Quotation / Payment Pending</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Warranty & Delivery Notes</label>
+            <input type="text" name="notes" class="form-control" value="Includes 1-Year Comprehensive Warranty & Certified Installation Support." />
+          </div>
+        </div>
+
+        <!-- Dynamic Line Items Builder -->
+        <div class="line-items-builder">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">
+              <i class="fa-solid fa-layer-group" style="color: var(--gold-400);"></i> Fixture Line Items (GST HSN: 9405)
+            </div>
+            <button type="button" class="btn btn-glass btn-sm" id="btnAddLineItem">
+              <i class="fa-solid fa-plus"></i> Add Another Fixture Row
+            </button>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 2.2fr 0.8fr 1fr 1fr 1.2fr 40px; gap: 12px; font-size: 0.75rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; font-weight: 600; padding: 0 4px;">
+            <div>Fixture Name / Model</div>
+            <div>Qty</div>
+            <div>Rate (₹)</div>
+            <div>Discount (₹)</div>
+            <div>Total (₹)</div>
+            <div></div>
+          </div>
+
+          <div id="manualLineItemsContainer">
+            <!-- Dynamic rows inserted by JS -->
+          </div>
+        </div>
+
+        <!-- Realtime Totals Computation -->
+        <div class="inv-calc-summary-card">
+          <div class="inv-calc-row">
+            <span>Taxable Subtotal (INR):</span>
+            <strong id="calcSubtotalText" style="color: #fff;">₹ 0</strong>
+          </div>
+          <div class="inv-calc-row">
+            <span>CGST (9.0%):</span>
+            <span id="calcCgstText">₹ 0.00</span>
+          </div>
+          <div class="inv-calc-row">
+            <span>SGST (9.0%):</span>
+            <span id="calcSgstText">₹ 0.00</span>
+          </div>
+          <div class="inv-calc-row grand-total">
+            <span>Grand Total (Incl. 18% GST):</span>
+            <span id="calcGrandTotalText">₹ 0</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px;">
+          <button type="button" class="btn btn-glass" id="btnCancelManualInvoice">Cancel</button>
+          <button type="submit" class="btn btn-gold">
+            <i class="fa-solid fa-file-invoice-dollar"></i> Generate & Save Invoice
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= ADD / EDIT PRODUCT MODAL ================= -->
+  <div class="modal-backdrop" id="productModal">
+    <div class="modal-dialog" style="max-width: 680px;">
+      <button class="modal-close-btn" id="btnCloseProductModal"><i class="fa-solid fa-xmark"></i></button>
+      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 20px;" id="productModalTitle">Add New Lighting Fixture</h2>
+
+      <form id="productForm">
+        <div class="form-group">
+          <label class="form-label">Fixture Name *</label>
+          <input type="text" name="name" class="form-control" placeholder="e.g. Royal Crystal Chandelier" required />
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Category *</label>
+            <select name="category" class="form-control" required>
+              <option value="chandeliers">Grand Chandeliers</option>
+              <option value="double-height">Double Height Chandeliers</option>
+              <option value="wall">Designer Wall Lights</option>
+              <option value="pendant">Hanging Pendants</option>
+              <option value="table-floor">Table & Floor Lamps</option>
+              <option value="ceiling">Ceiling Lights</option>
+              <option value="track">48V Magnetic Tracks</option>
+              <option value="outdoor">Outdoor Lights</option>
+              <option value="smart">Smart Lights</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Room Placement</label>
+            <select name="room" class="form-control">
+              <option value="living">Living Room</option>
+              <option value="bedroom">Bedroom</option>
+              <option value="dining">Dining Room</option>
+              <option value="outdoor">Outdoor / Garden</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Price (₹) *</label>
+            <input type="number" name="price" class="form-control" placeholder="24999" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Original Price (₹)</label>
+            <input type="number" name="originalPrice" class="form-control" placeholder="35999" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Discount Tag</label>
+            <input type="text" name="discount" class="form-control" placeholder="e.g. 30% OFF" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Badge</label>
+            <input type="text" name="badge" class="form-control" placeholder="e.g. Bestseller, Luxury" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Image Path, URL or Upload *</label>
+            <div style="display: flex; gap: 8px;">
+              <input type="text" name="image" id="productModalImageInput" class="form-control" placeholder="assets/products/... or upload photo" required />
+              <label class="btn btn-gold btn-sm" style="cursor: pointer; white-space: nowrap; padding: 6px 12px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-cloud-arrow-up"></i> Upload
+                <input type="file" id="productModalFileInput" accept="image/*" style="display: none;" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Preview & Presets Row -->
+        <div class="form-group" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; margin-bottom: 16px;">
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+            <img id="productModalImgPreview" src="assets/products/chandelier-imperial-crown.jpg" alt="Preview" style="width: 56px; height: 56px; object-fit: cover; border-radius: 6px; border: 1px solid var(--gold-border-bright);" />
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 600; color: #fff;">Selected Image Preview</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);" id="productModalImgPathText">assets/products/chandelier-imperial-crown.jpg</div>
+            </div>
+          </div>
+          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick Image Presets:</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px;" id="productModalImagePresets">
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/chandelier-imperial-crown.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Crown Chandelier</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/chandelier-halo.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Ring Halo</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/chandelier-smoked-sphere.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Smoked Sphere</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/chandelier-amber-fluted.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Amber Fluted</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/double-height-spiral.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Double Height Spiral</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/wall-marble.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Marble Wall Sconce</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/wall-up-down.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Up-Down Sconce</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/pendant-dining-bar.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Dining Pendant</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/lamp-arched-marble.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Arched Lamp</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/ceiling-triple-ring.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Ceiling Ring</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/track-system.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Magnetic Track</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/outdoor-bollard.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Outdoor Bollard</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/smart-halo.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Smart Halo</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Product Description</label>
+          <textarea name="description" class="form-control" rows="3" placeholder="Brief technical and aesthetic highlights..."></textarea>
+        </div>
+
+        <div style="display: flex; gap: 24px; margin-bottom: 24px;">
+          <label style="display: flex; align-items: center; gap: 8px; color: #fff; cursor: pointer;">
+            <input type="checkbox" name="inStock" checked /> In Showroom Stock
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; color: #fff; cursor: pointer;">
+            <input type="checkbox" name="trending" checked /> Show in Trending Section
+          </label>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: flex-end;">
+          <button type="submit" class="btn btn-gold">
+            <i class="fa-solid fa-check"></i> Save Fixture
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= ADD / EDIT HERO SLIDE MODAL ================= -->
+  <div class="modal-backdrop" id="sliderModal">
+    <div class="modal-dialog" style="max-width: 680px;">
+      <button class="modal-close-btn" id="btnCloseSliderModal"><i class="fa-solid fa-xmark"></i></button>
+      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 20px;" id="sliderModalTitle">Add New Hero Slide</h2>
+
+      <form id="sliderForm">
+        <div class="form-group">
+          <label class="form-label">Slide Main Title *</label>
+          <input type="text" name="title" class="form-control" placeholder="e.g. Grand Festive & Inaugural Offer" required />
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Highlight Text (Gold Gradient)</label>
+            <input type="text" name="highlightText" class="form-control" placeholder="e.g. Upto 35% OFF or Dual Beam Warm Glow" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Badge Tag</label>
+            <input type="text" name="badge" class="form-control" placeholder="e.g. Special Showroom Offer 🔥 or Wall Light Collection ✨" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Subtitle / Description</label>
+          <textarea name="subtitle" class="form-control" rows="2" placeholder="Brief description to display on the slide..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Banner Image Path, URL or Upload *</label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" name="image" id="slideImageInput" class="form-control" placeholder="assets/hero.jpg or upload banner" required />
+            <label class="btn btn-gold btn-sm" style="cursor: pointer; white-space: nowrap; padding: 6px 12px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px;">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Upload
+              <input type="file" id="sliderModalFileInput" accept="image/*" style="display: none;" />
+            </label>
+          </div>
+          <!-- Live Preview & Presets -->
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; margin-top: 10px;">
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+              <img id="sliderModalImgPreview" src="assets/hero.jpg" alt="Preview" style="width: 100px; height: 56px; object-fit: cover; border-radius: 6px; border: 1px solid var(--gold-border-bright);" />
+              <div>
+                <div style="font-size: 0.85rem; font-weight: 600; color: #fff;">Selected Slide Banner Preview</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);" id="sliderModalImgPathText">assets/hero.jpg</div>
+              </div>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick Banner Presets:</div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button type="button" class="btn btn-glass btn-sm js-slide-preset" data-src="assets/hero.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Offer Banner</button>
+              <button type="button" class="btn btn-glass btn-sm js-slide-preset" data-src="assets/products/wall.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Wall Lights</button>
+              <button type="button" class="btn btn-glass btn-sm js-slide-preset" data-src="assets/products/chandelier-imperial-crown.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Royal Chandelier</button>
+              <button type="button" class="btn btn-glass btn-sm js-slide-preset" data-src="assets/products/pendant-dining-bar.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Modern Pendant</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Primary CTA Button Text</label>
+            <input type="text" name="btnText" class="form-control" placeholder="e.g. Shop Offers or Explore Wall Lights" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Primary CTA Button Link</label>
+            <input type="text" name="btnLink" class="form-control" placeholder="#productsSection" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Secondary Button Text</label>
+            <input type="text" name="secondaryBtnText" class="form-control" placeholder="e.g. Book Consultation or See In Room" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Secondary Button Link / Modal</label>
+            <input type="text" name="secondaryBtnLink" class="form-control" placeholder="modal:consultation or modal:visualizer" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+          <div class="form-group">
+            <label class="form-label">Display Order</label>
+            <input type="number" name="order" class="form-control" value="1" min="1" />
+          </div>
+
+          <div class="form-group" style="display: flex; align-items: flex-end; padding-bottom: 8px;">
+            <label style="display: flex; align-items: center; gap: 8px; color: #fff; cursor: pointer;">
+              <input type="checkbox" name="active" checked /> Slide is Active (Visible)
+            </label>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: flex-end;">
+          <button type="submit" class="btn btn-gold">
+            <i class="fa-solid fa-check"></i> Save Slide
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= ADD / EDIT CATEGORY MODAL ================= -->
+  <div class="modal-backdrop" id="categoryModal">
+    <div class="modal-dialog" style="max-width: 600px;">
+      <button class="modal-close-btn" id="btnCloseCategoryModal"><i class="fa-solid fa-xmark"></i></button>
+      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 20px;" id="categoryModalTitle">Add New Category</h2>
+
+      <form id="categoryForm">
+        <div class="form-group">
+          <label class="form-label">Category Name *</label>
+          <input type="text" name="name" id="categoryNameInput" class="form-control" placeholder="e.g. Architectural Spotlights" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Category Slug / ID *</label>
+          <input type="text" name="id" id="categoryIdInput" class="form-control" placeholder="e.g. spotlights (lowercase, letters and hyphens only)" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Category Icon / Image Path or Upload *</label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" name="icon" id="categoryModalImageInput" class="form-control" placeholder="assets/products/... or upload image" required />
+            <label class="btn btn-gold btn-sm" style="cursor: pointer; white-space: nowrap; padding: 6px 12px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px;">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Upload
+              <input type="file" id="categoryModalFileInput" accept="image/*" style="display: none;" />
+            </label>
+          </div>
+        </div>
+
+        <!-- Category Image Preview & Presets -->
+        <div class="form-group" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; margin-bottom: 16px;">
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+            <img id="categoryModalImgPreview" src="assets/products/chandelier-imperial-crown.jpg" alt="Preview" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%; border: 1px solid var(--gold-border-bright);" />
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 600; color: #fff;">Selected Category Icon Preview</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);" id="categoryModalImgPathText">assets/products/chandelier-imperial-crown.jpg</div>
+            </div>
+          </div>
+          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick Presets:</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px;" id="categoryModalPresets">
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/chandelier-imperial-crown.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Chandelier</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/double-height-spiral.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Double Height</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/wall-marble.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Wall Light</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/pendant-dining-bar.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Pendant</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/lamp-arched-marble.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Lamp</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/ceiling-triple-ring.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Ceiling</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/track-system.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Track</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/outdoor-bollard.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Outdoor</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/smart-halo.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Smart</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Category Description</label>
+          <textarea name="desc" class="form-control" rows="2" placeholder="Brief description to display on category banners..."></textarea>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: flex-end;">
+          <button type="submit" class="btn btn-gold">
+            <i class="fa-solid fa-check"></i> Save Category
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= ADD / EDIT BLOG MODAL ================= -->
+  <div class="modal-backdrop" id="blogAdminModal">
+    <div class="modal-dialog" style="max-width: 820px;">
+      <button class="modal-close-btn" id="btnCloseBlogAdminModal"><i class="fa-solid fa-xmark"></i></button>
+      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 20px;" id="blogAdminModalTitle">Add New Blog Article</h2>
+
+      <form id="blogAdminForm">
+        <div class="form-group">
+          <label class="form-label">Article Title *</label>
+          <input type="text" name="title" id="blogAdminTitleInput" class="form-control" placeholder="e.g. How to Plan Layered Lighting for Double-Height Living Rooms" required />
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Category *</label>
+            <input type="text" name="category" id="blogAdminCategoryInput" list="blogCategoryList" class="form-control" placeholder="e.g. Design Guide" required />
+            <datalist id="blogCategoryList">
+              <option value="Design Guide" />
+              <option value="Lighting 101" />
+              <option value="Trends 2026" />
+              <option value="Architectural" />
+              <option value="Showroom News" />
+              <option value="Smart Lighting" />
+              <option value="Luxury Styling" />
+            </datalist>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Author Name</label>
+            <input type="text" name="author" class="form-control" value="JK Lights Architectural Studio" placeholder="e.g. JK Design Studio" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Estimated Read Time</label>
+            <input type="text" name="readTime" class="form-control" value="4 min read" placeholder="e.g. 5 min read" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Cover Image Path, URL or Upload *</label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" name="image" id="blogModalImageInput" class="form-control" placeholder="assets/products/... or upload photo" required />
+            <label class="btn btn-gold btn-sm" style="cursor: pointer; white-space: nowrap; padding: 6px 12px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px;">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Upload
+              <input type="file" id="blogModalFileInput" accept="image/*" style="display: none;" />
+            </label>
+          </div>
+        </div>
+
+        <!-- Image Preview & Presets Row -->
+        <div class="form-group" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; margin-bottom: 16px;">
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+            <img id="blogModalImgPreview" src="assets/products/chandelier-imperial-crown.jpg" alt="Preview" style="width: 80px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid var(--gold-border-bright);" />
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 600; color: #fff;">Selected Cover Image Preview</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);" id="blogModalImgPathText">assets/products/chandelier-imperial-crown.jpg</div>
+            </div>
+          </div>
+          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick Image Presets:</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px;" id="blogModalImagePresets">
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/hero.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Luxury Living Hero</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/products/chandelier-imperial-crown.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Grand Chandelier</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/products/double-height-spiral.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Double Height</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/products/wall-marble.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Marble Wall Sconce</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/products/wall-up-down.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Up-Down Sconce</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/products/track-system.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Magnetic Tracks</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/products/pendant-dining-bar.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Dining Pendant</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/products/smart-halo.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Smart Lighting</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Short Summary / Excerpt * (Displayed on blog card previews)</label>
+          <textarea name="summary" class="form-control" rows="2" placeholder="Brief 1-2 sentence hook for the card preview..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Full Article Content (Detailed paragraphs and guidelines)</label>
+          <textarea name="content" class="form-control" rows="6" placeholder="Write full article body here. Separate paragraphs with line breaks..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label"><i class="fa-solid fa-lightbulb" style="color: var(--gold-400);"></i> Expert Pro-Tip Callout Box (Optional)</label>
+          <input type="text" name="proTip" class="form-control" placeholder="e.g. Always layer ambient cove lights with accent wall sconces for luxury depth." />
+        </div>
+
+        <div style="display: flex; gap: 24px; margin-bottom: 24px;">
+          <label style="display: flex; align-items: center; gap: 8px; color: #fff; cursor: pointer;">
+            <input type="checkbox" name="featured" checked /> Mark as Featured / Recommended Article
+          </label>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: flex-end;">
+          <button type="button" class="btn btn-glass" id="btnCancelBlogAdminModal">Cancel</button>
+          <button type="submit" class="btn btn-gold">
+            <i class="fa-solid fa-floppy-disk"></i> Save & Publish Article
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= ADMIN BLOG PREVIEW MODAL ================= -->
+  <div class="modal-backdrop" id="blogAdminPreviewModal">
+    <div class="modal-dialog" style="max-width: 800px; max-height: 85vh; overflow-y: auto;">
+      <button class="modal-close-btn" id="btnCloseBlogAdminPreviewModal"><i class="fa-solid fa-xmark"></i></button>
+      <div id="blogAdminPreviewContent">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Standalone JavaScript (Runs in file:// and http://) -->
+  <script src="js/admin-app.js"></script>
+</body>
+</html>

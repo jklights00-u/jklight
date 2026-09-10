@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://jklights.com/index.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://jklights.com/assets/hero.jpg</image:loc>
+      <image:title>JK Lights Gandhinagar Luxury Lighting Showroom</image:title>
+      <image:caption>Grand festive offers on luxury crystal chandeliers and architectural lights at JK Lights Kudasan, Gandhinagar.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://jklights.com/assets/showroom.jpg</image:loc>
+      <image:title>JK Lights Showroom Kudasan Gandhinagar</image:title>
+      <image:caption>Multi-floor luxury lighting gallery in Kudasan with over 1000 live lighting fixtures.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Products Catalog -->
+  <url>
+    <loc>https://jklights.com/products.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://jklights.com/assets/products/chandelier.jpg</image:loc>
+      <image:title>Royal K9 Crystal Grand Chandelier Gandhinagar</image:title>
+      <image:caption>Handcrafted multi-tier crystal chandeliers for luxury duplexes and living rooms.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://jklights.com/assets/products/wall.jpg</image:loc>
+      <image:title>Architectural Dual Beam Wall Light Sconce</image:title>
+      <image:caption>Modern luxury wall sconces with warm amber glow for living rooms and elevation.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://jklights.com/assets/products/pendant.jpg</image:loc>
+      <image:title>Modern Cluster Pendant Lights Gandhinagar</image:title>
+      <image:caption>Contemporary dining and kitchen island pendant lighting fixtures.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Us -->
+  <url>
+    <loc>https://jklights.com/about.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://jklights.com/assets/showroom.jpg</image:loc>
+      <image:title>About JK Lights Gandhinagar</image:title>
+      <image:caption>12+ years of luxury illumination craftsmanship in Gujarat.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog & Lighting Design Guides -->
+  <url>
+    <loc>https://jklights.com/blog.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://jklights.com/assets/products/chandelier.jpg</image:loc>
+      <image:title>Luxury Home Lighting Design Guide Gujarat</image:title>
+      <image:caption>Complete guide to choosing chandeliers, magnetic tracks and layered illumination in Gujarat villas.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- FAQs -->
+  <url>
+    <loc>https://jklights.com/faqs.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact Us & Showroom Map -->
+  <url>
+    <loc>https://jklights.com/contact.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://jklights.com/assets/showroom.jpg</image:loc>
+      <image:title>JK Lights Showroom Location Kudasan Gandhinagar</image:title>
+      <image:caption>Visit JK Lights at 2nd Floor, VTC Complex, Above Kabir World, Reliance Cross Road, Kudasan, Gandhinagar.</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
