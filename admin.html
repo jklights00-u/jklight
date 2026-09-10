@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Dashboard & Billing | JK Lights Gandhinagar</title>
-  
+
   <!-- Disallow Search Engine Indexing for Admin Dashboard -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
-  
+
   <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
 
   <!-- Font Awesome -->
@@ -19,16 +20,21 @@
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/admin.css" />
 </head>
+
 <body class="admin-body">
 
   <!-- ================= ADMIN TOP NAVBAR ================= -->
   <header class="admin-navbar">
     <div class="admin-nav-left">
       <a href="admin.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-        <img src="assets/logo.jpg" alt="JK Lights Logo" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--gold-400);" />
+        <img src="assets/logo.jpg" alt="JK Lights Logo"
+          style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--gold-400);" />
         <div>
-          <span style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 800; color: #fff; letter-spacing: 0.05em;">JK LIGHTS</span>
-          <div style="font-size: 0.65rem; color: var(--gold-400); text-transform: uppercase;">Gandhinagar Showroom Management</div>
+          <span
+            style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 800; color: #fff; letter-spacing: 0.05em;">JK
+            LIGHTS</span>
+          <div style="font-size: 0.65rem; color: var(--gold-400); text-transform: uppercase;">Gandhinagar Showroom
+            Management</div>
         </div>
       </a>
       <span class="admin-badge">Admin Portal</span>
@@ -98,8 +104,11 @@
         <span>Store & Showroom</span>
       </div>
 
-      <div style="margin-top: auto; padding: 16px; background: rgba(255,255,255,0.02); border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
-        <div style="font-size: 0.75rem; color: var(--gold-400); font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">Showroom Location</div>
+      <div
+        style="margin-top: auto; padding: 16px; background: rgba(255,255,255,0.02); border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+        <div
+          style="font-size: 0.75rem; color: var(--gold-400); font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">
+          Showroom Location</div>
         <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4;">
           2nd Floor, VTC Complex, Above Kabir World, Kudasan, Gandhinagar - 382421
         </div>
@@ -164,7 +173,8 @@
         <!-- Recent Inquiries Table -->
         <div class="table-card">
           <div class="table-toolbar">
-            <h3 style="color: #fff; font-size: 1.1rem;"><i class="fa-solid fa-bell" style="color: var(--gold-400); margin-right: 8px;"></i> Recent Customer Inquiries</h3>
+            <h3 style="color: #fff; font-size: 1.1rem;"><i class="fa-solid fa-bell"
+                style="color: var(--gold-400); margin-right: 8px;"></i> Recent Customer Inquiries</h3>
           </div>
           <table class="data-table">
             <thead>
@@ -188,7 +198,8 @@
         <div class="panel-header">
           <div>
             <h1 class="panel-title">Invoices & Quotations Studio</h1>
-            <p class="panel-subtitle">Create manual tax invoices, generate printable luxury PDFs, and track customer payments</p>
+            <p class="panel-subtitle">Create manual tax invoices, generate printable luxury PDFs, and track customer
+              payments</p>
           </div>
           <button class="btn btn-gold" id="btnCreateManualInvoice">
             <i class="fa-solid fa-plus"></i> Create Manual Invoice
@@ -247,7 +258,8 @@
             </div>
 
             <div style="display: flex; gap: 12px; align-items: center;">
-              <select id="invoiceStatusFilter" class="form-control" style="width: 170px; padding: 6px 12px; font-size: 0.85rem;">
+              <select id="invoiceStatusFilter" class="form-control"
+                style="width: 170px; padding: 6px 12px; font-size: 0.85rem;">
                 <option value="all">All Invoices</option>
                 <option value="paid">Paid</option>
                 <option value="advance">Advance Received</option>
@@ -280,7 +292,8 @@
         <div class="panel-header">
           <div>
             <h1 class="panel-title">Hero Slider & Banners</h1>
-            <p class="panel-subtitle">Manage homepage carousel slides, promotional offer banners, wall light highlights, and CTA links</p>
+            <p class="panel-subtitle">Manage homepage carousel slides, promotional offer banners, wall light highlights,
+              and CTA links</p>
           </div>
           <button class="btn btn-gold" id="btnAddNewSlide">
             <i class="fa-solid fa-plus"></i> Add New Slide
@@ -327,7 +340,8 @@
             </div>
 
             <div style="display: flex; gap: 12px; align-items: center;">
-              <select id="productCategoryFilter" class="form-control" style="width: 200px; padding: 6px 12px; font-size: 0.85rem;">
+              <select id="productCategoryFilter" class="form-control"
+                style="width: 200px; padding: 6px 12px; font-size: 0.85rem;">
                 <option value="all">All Categories</option>
                 <option value="chandeliers">Grand Chandeliers</option>
                 <option value="double-height">Double Height Chandeliers</option>
@@ -343,7 +357,8 @@
           </div>
 
           <!-- Quick Category Filter Pills with Live Counts -->
-          <div class="category-jump-bar admin-cat-tabs" id="adminCategoryTabs" style="margin: 0 16px 16px 16px; padding: 6px 10px; background: rgba(0,0,0,0.35);">
+          <div class="category-jump-bar admin-cat-tabs" id="adminCategoryTabs"
+            style="margin: 0 16px 16px 16px; padding: 6px 10px; background: rgba(0,0,0,0.35);">
             <!-- Rendered by JS -->
           </div>
 
@@ -370,7 +385,8 @@
         <div class="panel-header">
           <div>
             <h1 class="panel-title">Categories & Collections Manager</h1>
-            <p class="panel-subtitle">Create and organize lighting categories, upload custom icons, and manage showroom collections</p>
+            <p class="panel-subtitle">Create and organize lighting categories, upload custom icons, and manage showroom
+              collections</p>
           </div>
           <button class="btn btn-gold" id="btnAddNewCategory">
             <i class="fa-solid fa-plus"></i> Add New Category
@@ -429,7 +445,8 @@
         <div class="panel-header">
           <div>
             <h1 class="panel-title">Design Journal & Blog Manager</h1>
-            <p class="panel-subtitle">Create, edit, publish, and delete design articles, architectural lighting guides, and trends for your Gandhinagar showroom</p>
+            <p class="panel-subtitle">Create, edit, publish, and delete design articles, architectural lighting guides,
+              and trends for your Gandhinagar showroom</p>
           </div>
           <button class="btn btn-gold" id="btnAddNewBlog">
             <i class="fa-solid fa-plus"></i> Add New Blog Article
@@ -444,7 +461,8 @@
             </div>
 
             <div style="display: flex; gap: 12px; align-items: center;">
-              <select id="blogCategoryFilter" class="form-control" style="width: 200px; padding: 6px 12px; font-size: 0.85rem;">
+              <select id="blogCategoryFilter" class="form-control"
+                style="width: 200px; padding: 6px 12px; font-size: 0.85rem;">
                 <option value="all">All Categories</option>
                 <option value="Design Guide">Design Guide</option>
                 <option value="Lighting 101">Lighting 101</option>
@@ -489,24 +507,32 @@
           <!-- Sandip Patel Card -->
           <div class="owner-card">
             <div class="owner-img-wrap">
-              <span class="owner-badge-tag"><i class="fa-solid fa-crown" style="color: var(--gold-400);"></i> Founder & Managing Director</span>
+              <span class="owner-badge-tag"><i class="fa-solid fa-crown" style="color: var(--gold-400);"></i> Founder &
+                Managing Director</span>
               <img src="assets/owners/sandip-patel.jpg" alt="Sandip Patel - Founder & MD" class="owner-img" />
             </div>
             <div class="owner-details">
               <h3 class="owner-name">Sandip Patel</h3>
               <div class="owner-role">Founder & Managing Director | Senior Lighting Architect</div>
               <p class="owner-bio">
-                Visionary founder behind JK Lights Gandhinagar with 12+ years of expertise in luxury residential illumination. Pioneered custom double-height crystal chandelier installations, 48V magnetic track layouts, and architectural lighting designs across elite villas and bungalows in Gandhinagar, Gift City, and Ahmedabad.
+                Visionary founder behind JK Lights Gandhinagar with 12+ years of expertise in luxury residential
+                illumination. Pioneered custom double-height crystal chandelier installations, 48V magnetic track
+                layouts, and architectural lighting designs across elite villas and bungalows in Gandhinagar, Gift City,
+                and Ahmedabad.
               </p>
-              
+
               <div class="owner-highlights">
-                <span class="owner-pill"><i class="fa-solid fa-award" style="color: var(--gold-400);"></i> 12+ Years Experience</span>
-                <span class="owner-pill"><i class="fa-solid fa-gem" style="color: var(--gold-400);"></i> Duplex Chandelier Specialist</span>
-                <span class="owner-pill"><i class="fa-solid fa-location-dot" style="color: var(--gold-400);"></i> Kudasan Showroom</span>
+                <span class="owner-pill"><i class="fa-solid fa-award" style="color: var(--gold-400);"></i> 12+ Years
+                  Experience</span>
+                <span class="owner-pill"><i class="fa-solid fa-gem" style="color: var(--gold-400);"></i> Duplex
+                  Chandelier Specialist</span>
+                <span class="owner-pill"><i class="fa-solid fa-location-dot" style="color: var(--gold-400);"></i>
+                  Kudasan Showroom</span>
               </div>
 
               <div style="display: flex; gap: 12px; margin-top: auto;">
-                <a href="https://wa.me/919898091234?text=Hello%20Sandip%20Patel%20Sir!%20I%20would%20like%20to%20discuss%20a%20luxury%20lighting%20project." target="_blank" class="btn btn-whatsapp" style="flex: 1;">
+                <a href="https://wa.me/919898091234?text=Hello%20Sandip%20Patel%20Sir!%20I%20would%20like%20to%20discuss%20a%20luxury%20lighting%20project."
+                  target="_blank" class="btn btn-whatsapp" style="flex: 1;">
                   <i class="fa-brands fa-whatsapp"></i> Chat with Sandip Patel
                 </a>
                 <a href="tel:+919898091234" class="btn btn-glass" title="Call Direct">
@@ -519,24 +545,34 @@
           <!-- Jigisha Prajapati Card -->
           <div class="owner-card">
             <div class="owner-img-wrap">
-              <span class="owner-badge-tag"><i class="fa-solid fa-star" style="color: var(--gold-400);"></i> Co-Founder & Creative Director</span>
-              <img src="C:/Users/LENOVO/.gemini/antigravity-ide/brain/99066271-2e98-4272-a01b-e76238c1fe32/.user_uploaded/media_1788870614385.jpg" alt="Jigisha Prajapati - Co-Founder & Creative Director" class="owner-img" onerror="this.src='assets/owners/jigisha-prajapati.png'" />
+              <span class="owner-badge-tag"><i class="fa-solid fa-star" style="color: var(--gold-400);"></i> Co-Founder
+                & Creative Director</span>
+              <img
+                src="C:/Users/LENOVO/.gemini/antigravity-ide/brain/99066271-2e98-4272-a01b-e76238c1fe32/.user_uploaded/media_1788870614385.jpg"
+                alt="Jigisha Prajapati - Co-Founder & Creative Director" class="owner-img"
+                onerror="this.src='assets/owners/jigisha-prajapati.png'" />
             </div>
             <div class="owner-details">
               <h3 class="owner-name">Jigisha Prajapati</h3>
               <div class="owner-role">Co-Founder & Creative Director | Interior Lighting Stylist</div>
               <p class="owner-bio">
-                Leads creative aesthetics, color temperature harmonization (2700K Warm vs 4000K Neutral), and luxury decorative luminaire curation at JK Lights. Specializes in tailoring personalized lighting blueprints that enhance natural teak woodwork, Italian marble textures, and modern false ceiling coves.
+                Leads creative aesthetics, color temperature harmonization (2700K Warm vs 4000K Neutral), and luxury
+                decorative luminaire curation at JK Lights. Specializes in tailoring personalized lighting blueprints
+                that enhance natural teak woodwork, Italian marble textures, and modern false ceiling coves.
               </p>
 
               <div class="owner-highlights">
-                <span class="owner-pill"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--gold-400);"></i> 10+ Years Experience</span>
-                <span class="owner-pill"><i class="fa-solid fa-palette" style="color: var(--gold-400);"></i> Interior Lighting Stylist</span>
-                <span class="owner-pill"><i class="fa-solid fa-lightbulb" style="color: var(--gold-400);"></i> Mood & Ambiance Curator</span>
+                <span class="owner-pill"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--gold-400);"></i>
+                  10+ Years Experience</span>
+                <span class="owner-pill"><i class="fa-solid fa-palette" style="color: var(--gold-400);"></i> Interior
+                  Lighting Stylist</span>
+                <span class="owner-pill"><i class="fa-solid fa-lightbulb" style="color: var(--gold-400);"></i> Mood &
+                  Ambiance Curator</span>
               </div>
 
               <div style="display: flex; gap: 12px; margin-top: auto;">
-                <a href="https://wa.me/919898091234?text=Hello%20Jigisha%20Ma'am!%20I%20would%20like%20expert%20lighting%20styling%20advice%20for%20my%20residence." target="_blank" class="btn btn-whatsapp" style="flex: 1;">
+                <a href="https://wa.me/919898091234?text=Hello%20Jigisha%20Ma'am!%20I%20would%20like%20expert%20lighting%20styling%20advice%20for%20my%20residence."
+                  target="_blank" class="btn btn-whatsapp" style="flex: 1;">
                   <i class="fa-brands fa-whatsapp"></i> Chat with Jigisha Prajapati
                 </a>
                 <a href="tel:+919898091234" class="btn btn-glass" title="Call Direct">
@@ -573,7 +609,8 @@
 
             <div class="form-group">
               <label class="form-label">Full Showroom Address (Google My Business)</label>
-              <textarea name="address" class="form-control" rows="2" required>2nd Floor, VTC Complex (Vrundavan Trade Center), Above Kabir World, Reliance Cross Road, Kudasan, Gandhinagar - 382421</textarea>
+              <textarea name="address" class="form-control" rows="2"
+                required>2nd Floor, VTC Complex (Vrundavan Trade Center), Above Kabir World, Reliance Cross Road, Kudasan, Gandhinagar - 382421</textarea>
             </div>
 
             <div class="settings-grid">
@@ -601,37 +638,47 @@
             </div>
 
             <!-- Showroom / Shop Photo Editor -->
-            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 22px; margin-top: 24px; margin-bottom: 24px;">
-              <h3 style="color: var(--gold-300); font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+            <div
+              style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 22px; margin-top: 24px; margin-bottom: 24px;">
+              <h3
+                style="color: var(--gold-300); font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
                 <i class="fa-solid fa-camera" style="color: var(--gold-400);"></i> Showroom &amp; Shop Showcase Photo
               </h3>
               <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 18px;">
-                This main photo is showcased on the Homepage (About section), About Us page, and Contact Navigation cards across the website.
+                This main photo is showcased on the Homepage (About section), About Us page, and Contact Navigation
+                cards across the website.
               </p>
 
               <div style="display: grid; grid-template-columns: 240px 1fr; gap: 24px; align-items: center;">
                 <!-- Live Thumbnail Preview -->
-                <div style="position: relative; width: 240px; height: 160px; border-radius: var(--radius-md); overflow: hidden; border: 2px solid var(--gold-400); background: #000; box-shadow: 0 8px 24px rgba(0,0,0,0.5);">
-                  <img id="showroomPhotoPreview" src="assets/showroom.jpg" alt="Showroom Photo Preview" style="width: 100%; height: 100%; object-fit: cover;" />
-                  <span style="position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); color: var(--gold-300); padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; border: 1px solid var(--gold-400);">Live</span>
+                <div
+                  style="position: relative; width: 240px; height: 160px; border-radius: var(--radius-md); overflow: hidden; border: 2px solid var(--gold-400); background: #000; box-shadow: 0 8px 24px rgba(0,0,0,0.5);">
+                  <img id="showroomPhotoPreview" src="assets/showroom.jpg" alt="Showroom Photo Preview"
+                    style="width: 100%; height: 100%; object-fit: cover;" />
+                  <span
+                    style="position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); color: var(--gold-300); padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; border: 1px solid var(--gold-400);">Live</span>
                 </div>
 
                 <!-- Input / Upload Controls -->
                 <div>
                   <div class="form-group" style="margin-bottom: 12px;">
                     <label class="form-label">Photo File Path or Image URL</label>
-                    <input type="text" name="showroomImage" id="showroomImageInput" class="form-control" value="assets/showroom.jpg" placeholder="assets/showroom.jpg or https://..." />
+                    <input type="text" name="showroomImage" id="showroomImageInput" class="form-control"
+                      value="assets/showroom.jpg" placeholder="assets/showroom.jpg or https://..." />
                   </div>
 
                   <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-                    <label class="btn btn-glass btn-sm" style="cursor: pointer; margin: 0; display: inline-flex; align-items: center; gap: 8px;">
+                    <label class="btn btn-glass btn-sm"
+                      style="cursor: pointer; margin: 0; display: inline-flex; align-items: center; gap: 8px;">
                       <i class="fa-solid fa-upload"></i> Upload New Photo
                       <input type="file" id="showroomPhotoFileInput" accept="image/*" style="display: none;" />
                     </label>
-                    <button type="button" class="btn btn-glass btn-sm" id="btnResetShowroomPhoto" title="Reset to default showroom image">
+                    <button type="button" class="btn btn-glass btn-sm" id="btnResetShowroomPhoto"
+                      title="Reset to default showroom image">
                       <i class="fa-solid fa-rotate-left"></i> Reset Default
                     </button>
-                    <span style="font-size: 0.75rem; color: var(--text-muted);">(Supports JPG, PNG, WEBP — automatically saved to browser storage)</span>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">(Supports JPG, PNG, WEBP — automatically
+                      saved to browser storage)</span>
                   </div>
                 </div>
               </div>
@@ -645,9 +692,11 @@
       </section>
 
       <!-- Admin Footer -->
-      <footer style="margin-top: 40px; padding: 20px 0; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.82rem; flex-wrap: wrap; gap: 12px;">
+      <footer
+        style="margin-top: 40px; padding: 20px 0; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.82rem; flex-wrap: wrap; gap: 12px;">
         <div>© 2026 JK Lights Gandhinagar — Showroom Admin &amp; Billing Portal</div>
-        <div>Powered by <a href="#" target="_blank" rel="noopener" style="color: var(--gold-400); font-weight: 600; text-decoration: none;">Khushi Creative Tech</a></div>
+        <div>Powered by <a href="#" target="_blank" rel="noopener"
+            style="color: var(--gold-400); font-weight: 600; text-decoration: none;">Khushi Creative Tech</a></div>
       </footer>
 
     </main>
@@ -657,16 +706,19 @@
   <div class="modal-backdrop" id="manualInvoiceModal">
     <div class="modal-dialog" style="max-width: 860px;">
       <button class="modal-close-btn" id="btnCloseManualInvoiceModal"><i class="fa-solid fa-xmark"></i></button>
-      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 8px;">Create Manual Tax Invoice / Quotation</h2>
+      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 8px;">Create Manual Tax
+        Invoice / Quotation</h2>
       <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 20px;">
-        Add client details, select or enter custom lighting fixtures, apply discounts, and generate official GST invoice.
+        Add client details, select or enter custom lighting fixtures, apply discounts, and generate official GST
+        invoice.
       </p>
 
       <form id="manualInvoiceForm">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
           <div class="form-group">
             <label class="form-label">Invoice Number</label>
-            <input type="text" name="invoiceId" id="manualInvIdInput" class="form-control" readonly style="font-family: monospace; font-weight: 700; color: var(--gold-400);" />
+            <input type="text" name="invoiceId" id="manualInvIdInput" class="form-control" readonly
+              style="font-family: monospace; font-weight: 700; color: var(--gold-400);" />
           </div>
 
           <div class="form-group">
@@ -690,12 +742,14 @@
         <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px;">
           <div class="form-group">
             <label class="form-label">Site / Delivery Address</label>
-            <input type="text" name="address" class="form-control" placeholder="e.g. Bungalow 14, Pramukh Elysium, Kudasan, Gandhinagar" />
+            <input type="text" name="address" class="form-control"
+              placeholder="e.g. Bungalow 14, Pramukh Elysium, Kudasan, Gandhinagar" />
           </div>
 
           <div class="form-group">
             <label class="form-label">Project / Space Scope</label>
-            <input type="text" name="roomType" class="form-control" placeholder="e.g. 4BHK Villa / Duplex Living Room" />
+            <input type="text" name="roomType" class="form-control"
+              placeholder="e.g. 4BHK Villa / Duplex Living Room" />
           </div>
         </div>
 
@@ -711,7 +765,8 @@
 
           <div class="form-group">
             <label class="form-label">Warranty & Delivery Notes</label>
-            <input type="text" name="notes" class="form-control" value="Includes 1-Year Comprehensive Warranty & Certified Installation Support." />
+            <input type="text" name="notes" class="form-control"
+              value="Includes 1-Year Comprehensive Warranty & Certified Installation Support." />
           </div>
         </div>
 
@@ -726,7 +781,8 @@
             </button>
           </div>
 
-          <div style="display: grid; grid-template-columns: 2.2fr 0.8fr 1fr 1fr 1.2fr 40px; gap: 12px; font-size: 0.75rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; font-weight: 600; padding: 0 4px;">
+          <div
+            style="display: grid; grid-template-columns: 2.2fr 0.8fr 1fr 1fr 1.2fr 40px; gap: 12px; font-size: 0.75rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; font-weight: 600; padding: 0 4px;">
             <div>Fixture Name / Model</div>
             <div>Qty</div>
             <div>Rate (₹)</div>
@@ -774,7 +830,8 @@
   <div class="modal-backdrop" id="productModal">
     <div class="modal-dialog" style="max-width: 680px;">
       <button class="modal-close-btn" id="btnCloseProductModal"><i class="fa-solid fa-xmark"></i></button>
-      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 20px;" id="productModalTitle">Add New Lighting Fixture</h2>
+      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 20px;"
+        id="productModalTitle">Add New Lighting Fixture</h2>
 
       <form id="productForm">
         <div class="form-group">
@@ -835,8 +892,10 @@
           <div class="form-group">
             <label class="form-label">Image Path, URL or Upload *</label>
             <div style="display: flex; gap: 8px;">
-              <input type="text" name="image" id="productModalImageInput" class="form-control" placeholder="assets/products/... or upload photo" required />
-              <label class="btn btn-gold btn-sm" style="cursor: pointer; white-space: nowrap; padding: 6px 12px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px;">
+              <input type="text" name="image" id="productModalImageInput" class="form-control"
+                placeholder="assets/products/... or upload photo" required />
+              <label class="btn btn-gold btn-sm"
+                style="cursor: pointer; white-space: nowrap; padding: 6px 12px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px;">
                 <i class="fa-solid fa-cloud-arrow-up"></i> Upload
                 <input type="file" id="productModalFileInput" accept="image/*" style="display: none;" />
               </label>
@@ -845,35 +904,62 @@
         </div>
 
         <!-- Image Preview & Presets Row -->
-        <div class="form-group" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; margin-bottom: 16px;">
+        <div class="form-group"
+          style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; margin-bottom: 16px;">
           <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
-            <img id="productModalImgPreview" src="assets/products/chandelier-imperial-crown.jpg" alt="Preview" style="width: 56px; height: 56px; object-fit: cover; border-radius: 6px; border: 1px solid var(--gold-border-bright);" />
+            <img id="productModalImgPreview" src="assets/products/chandelier-imperial-crown.jpg" alt="Preview"
+              style="width: 56px; height: 56px; object-fit: cover; border-radius: 6px; border: 1px solid var(--gold-border-bright);" />
             <div>
               <div style="font-size: 0.85rem; font-weight: 600; color: #fff;">Selected Image Preview</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted);" id="productModalImgPathText">assets/products/chandelier-imperial-crown.jpg</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);" id="productModalImgPathText">
+                assets/products/chandelier-imperial-crown.jpg</div>
             </div>
           </div>
-          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick Image Presets:</div>
+          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick Image
+            Presets:</div>
           <div style="display: flex; flex-wrap: wrap; gap: 6px;" id="productModalImagePresets">
-            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/chandelier-imperial-crown.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Crown Chandelier</button>
-            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/chandelier-halo.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Ring Halo</button>
-            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/chandelier-smoked-sphere.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Smoked Sphere</button>
-            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/chandelier-amber-fluted.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Amber Fluted</button>
-            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/double-height-spiral.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Double Height Spiral</button>
-            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/wall-marble.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Marble Wall Sconce</button>
-            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/wall-up-down.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Up-Down Sconce</button>
-            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/pendant-dining-bar.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Dining Pendant</button>
-            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/lamp-arched-marble.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Arched Lamp</button>
-            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/ceiling-triple-ring.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Ceiling Ring</button>
-            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/track-system.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Magnetic Track</button>
-            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/outdoor-bollard.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Outdoor Bollard</button>
-            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/smart-halo.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Smart Halo</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset"
+              data-src="assets/products/chandelier-imperial-crown.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Crown Chandelier</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset"
+              data-src="assets/products/chandelier-halo.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Ring
+              Halo</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset"
+              data-src="assets/products/chandelier-smoked-sphere.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Smoked Sphere</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset"
+              data-src="assets/products/chandelier-amber-fluted.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Amber
+              Fluted</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset"
+              data-src="assets/products/double-height-spiral.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Double
+              Height Spiral</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/wall-marble.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Marble Wall Sconce</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/wall-up-down.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Up-Down Sconce</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset"
+              data-src="assets/products/pendant-dining-bar.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Dining
+              Pendant</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset"
+              data-src="assets/products/lamp-arched-marble.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Arched
+              Lamp</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset"
+              data-src="assets/products/ceiling-triple-ring.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Ceiling
+              Ring</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/track-system.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Magnetic Track</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset"
+              data-src="assets/products/outdoor-bollard.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Outdoor
+              Bollard</button>
+            <button type="button" class="btn btn-glass btn-sm js-img-preset" data-src="assets/products/smart-halo.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Smart Halo</button>
           </div>
         </div>
 
         <div class="form-group">
           <label class="form-label">Product Description</label>
-          <textarea name="description" class="form-control" rows="3" placeholder="Brief technical and aesthetic highlights..."></textarea>
+          <textarea name="description" class="form-control" rows="3"
+            placeholder="Brief technical and aesthetic highlights..."></textarea>
         </div>
 
         <div style="display: flex; gap: 24px; margin-bottom: 24px;">
@@ -898,55 +984,72 @@
   <div class="modal-backdrop" id="sliderModal">
     <div class="modal-dialog" style="max-width: 680px;">
       <button class="modal-close-btn" id="btnCloseSliderModal"><i class="fa-solid fa-xmark"></i></button>
-      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 20px;" id="sliderModalTitle">Add New Hero Slide</h2>
+      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 20px;"
+        id="sliderModalTitle">Add New Hero Slide</h2>
 
       <form id="sliderForm">
         <div class="form-group">
           <label class="form-label">Slide Main Title *</label>
-          <input type="text" name="title" class="form-control" placeholder="e.g. Grand Festive & Inaugural Offer" required />
+          <input type="text" name="title" class="form-control" placeholder="e.g. Grand Festive & Inaugural Offer"
+            required />
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
           <div class="form-group">
             <label class="form-label">Highlight Text (Gold Gradient)</label>
-            <input type="text" name="highlightText" class="form-control" placeholder="e.g. Upto 35% OFF or Dual Beam Warm Glow" />
+            <input type="text" name="highlightText" class="form-control"
+              placeholder="e.g. Upto 35% OFF or Dual Beam Warm Glow" />
           </div>
 
           <div class="form-group">
             <label class="form-label">Badge Tag</label>
-            <input type="text" name="badge" class="form-control" placeholder="e.g. Special Showroom Offer 🔥 or Wall Light Collection ✨" />
+            <input type="text" name="badge" class="form-control"
+              placeholder="e.g. Special Showroom Offer 🔥 or Wall Light Collection ✨" />
           </div>
         </div>
 
         <div class="form-group">
           <label class="form-label">Subtitle / Description</label>
-          <textarea name="subtitle" class="form-control" rows="2" placeholder="Brief description to display on the slide..."></textarea>
+          <textarea name="subtitle" class="form-control" rows="2"
+            placeholder="Brief description to display on the slide..."></textarea>
         </div>
 
         <div class="form-group">
           <label class="form-label">Banner Image Path, URL or Upload *</label>
           <div style="display: flex; gap: 8px;">
-            <input type="text" name="image" id="slideImageInput" class="form-control" placeholder="assets/hero.jpg or upload banner" required />
-            <label class="btn btn-gold btn-sm" style="cursor: pointer; white-space: nowrap; padding: 6px 12px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px;">
+            <input type="text" name="image" id="slideImageInput" class="form-control"
+              placeholder="assets/hero.jpg or upload banner" required />
+            <label class="btn btn-gold btn-sm"
+              style="cursor: pointer; white-space: nowrap; padding: 6px 12px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px;">
               <i class="fa-solid fa-cloud-arrow-up"></i> Upload
               <input type="file" id="sliderModalFileInput" accept="image/*" style="display: none;" />
             </label>
           </div>
           <!-- Live Preview & Presets -->
-          <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; margin-top: 10px;">
+          <div
+            style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; margin-top: 10px;">
             <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
-              <img id="sliderModalImgPreview" src="assets/hero.jpg" alt="Preview" style="width: 100px; height: 56px; object-fit: cover; border-radius: 6px; border: 1px solid var(--gold-border-bright);" />
+              <img id="sliderModalImgPreview" src="assets/hero.jpg" alt="Preview"
+                style="width: 100px; height: 56px; object-fit: cover; border-radius: 6px; border: 1px solid var(--gold-border-bright);" />
               <div>
                 <div style="font-size: 0.85rem; font-weight: 600; color: #fff;">Selected Slide Banner Preview</div>
-                <div style="font-size: 0.75rem; color: var(--text-muted);" id="sliderModalImgPathText">assets/hero.jpg</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);" id="sliderModalImgPathText">assets/hero.jpg
+                </div>
               </div>
             </div>
-            <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick Banner Presets:</div>
+            <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick
+              Banner Presets:</div>
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-              <button type="button" class="btn btn-glass btn-sm js-slide-preset" data-src="assets/hero.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Offer Banner</button>
-              <button type="button" class="btn btn-glass btn-sm js-slide-preset" data-src="assets/products/wall.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Wall Lights</button>
-              <button type="button" class="btn btn-glass btn-sm js-slide-preset" data-src="assets/products/chandelier-imperial-crown.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Royal Chandelier</button>
-              <button type="button" class="btn btn-glass btn-sm js-slide-preset" data-src="assets/products/pendant-dining-bar.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Modern Pendant</button>
+              <button type="button" class="btn btn-glass btn-sm js-slide-preset" data-src="assets/hero.jpg"
+                style="font-size: 0.72rem; padding: 4px 8px;">Offer Banner</button>
+              <button type="button" class="btn btn-glass btn-sm js-slide-preset" data-src="assets/products/wall.jpg"
+                style="font-size: 0.72rem; padding: 4px 8px;">Wall Lights</button>
+              <button type="button" class="btn btn-glass btn-sm js-slide-preset"
+                data-src="assets/products/chandelier-imperial-crown.jpg"
+                style="font-size: 0.72rem; padding: 4px 8px;">Royal Chandelier</button>
+              <button type="button" class="btn btn-glass btn-sm js-slide-preset"
+                data-src="assets/products/pendant-dining-bar.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Modern
+                Pendant</button>
             </div>
           </div>
         </div>
@@ -954,7 +1057,8 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
           <div class="form-group">
             <label class="form-label">Primary CTA Button Text</label>
-            <input type="text" name="btnText" class="form-control" placeholder="e.g. Shop Offers or Explore Wall Lights" />
+            <input type="text" name="btnText" class="form-control"
+              placeholder="e.g. Shop Offers or Explore Wall Lights" />
           </div>
 
           <div class="form-group">
@@ -966,12 +1070,14 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
           <div class="form-group">
             <label class="form-label">Secondary Button Text</label>
-            <input type="text" name="secondaryBtnText" class="form-control" placeholder="e.g. Book Consultation or See In Room" />
+            <input type="text" name="secondaryBtnText" class="form-control"
+              placeholder="e.g. Book Consultation or See In Room" />
           </div>
 
           <div class="form-group">
             <label class="form-label">Secondary Button Link / Modal</label>
-            <input type="text" name="secondaryBtnLink" class="form-control" placeholder="modal:consultation or modal:visualizer" />
+            <input type="text" name="secondaryBtnLink" class="form-control"
+              placeholder="modal:consultation or modal:visualizer" />
           </div>
         </div>
 
@@ -1001,24 +1107,29 @@
   <div class="modal-backdrop" id="categoryModal">
     <div class="modal-dialog" style="max-width: 600px;">
       <button class="modal-close-btn" id="btnCloseCategoryModal"><i class="fa-solid fa-xmark"></i></button>
-      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 20px;" id="categoryModalTitle">Add New Category</h2>
+      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 20px;"
+        id="categoryModalTitle">Add New Category</h2>
 
       <form id="categoryForm">
         <div class="form-group">
           <label class="form-label">Category Name *</label>
-          <input type="text" name="name" id="categoryNameInput" class="form-control" placeholder="e.g. Architectural Spotlights" required />
+          <input type="text" name="name" id="categoryNameInput" class="form-control"
+            placeholder="e.g. Architectural Spotlights" required />
         </div>
 
         <div class="form-group">
           <label class="form-label">Category Slug / ID *</label>
-          <input type="text" name="id" id="categoryIdInput" class="form-control" placeholder="e.g. spotlights (lowercase, letters and hyphens only)" required />
+          <input type="text" name="id" id="categoryIdInput" class="form-control"
+            placeholder="e.g. spotlights (lowercase, letters and hyphens only)" required />
         </div>
 
         <div class="form-group">
           <label class="form-label">Category Icon / Image Path or Upload *</label>
           <div style="display: flex; gap: 8px;">
-            <input type="text" name="icon" id="categoryModalImageInput" class="form-control" placeholder="assets/products/... or upload image" required />
-            <label class="btn btn-gold btn-sm" style="cursor: pointer; white-space: nowrap; padding: 6px 12px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px;">
+            <input type="text" name="icon" id="categoryModalImageInput" class="form-control"
+              placeholder="assets/products/... or upload image" required />
+            <label class="btn btn-gold btn-sm"
+              style="cursor: pointer; white-space: nowrap; padding: 6px 12px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px;">
               <i class="fa-solid fa-cloud-arrow-up"></i> Upload
               <input type="file" id="categoryModalFileInput" accept="image/*" style="display: none;" />
             </label>
@@ -1026,31 +1137,51 @@
         </div>
 
         <!-- Category Image Preview & Presets -->
-        <div class="form-group" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; margin-bottom: 16px;">
+        <div class="form-group"
+          style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; margin-bottom: 16px;">
           <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
-            <img id="categoryModalImgPreview" src="assets/products/chandelier-imperial-crown.jpg" alt="Preview" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%; border: 1px solid var(--gold-border-bright);" />
+            <img id="categoryModalImgPreview" src="assets/products/chandelier-imperial-crown.jpg" alt="Preview"
+              style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%; border: 1px solid var(--gold-border-bright);" />
             <div>
               <div style="font-size: 0.85rem; font-weight: 600; color: #fff;">Selected Category Icon Preview</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted);" id="categoryModalImgPathText">assets/products/chandelier-imperial-crown.jpg</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);" id="categoryModalImgPathText">
+                assets/products/chandelier-imperial-crown.jpg</div>
             </div>
           </div>
-          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick Presets:</div>
+          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick
+            Presets:</div>
           <div style="display: flex; flex-wrap: wrap; gap: 6px;" id="categoryModalPresets">
-            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/chandelier-imperial-crown.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Chandelier</button>
-            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/double-height-spiral.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Double Height</button>
-            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/wall-marble.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Wall Light</button>
-            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/pendant-dining-bar.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Pendant</button>
-            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/lamp-arched-marble.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Lamp</button>
-            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/ceiling-triple-ring.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Ceiling</button>
-            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/track-system.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Track</button>
-            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/outdoor-bollard.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Outdoor</button>
-            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/smart-halo.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Smart</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset"
+              data-src="assets/products/chandelier-imperial-crown.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Chandelier</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset"
+              data-src="assets/products/double-height-spiral.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Double
+              Height</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/wall-marble.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Wall Light</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset"
+              data-src="assets/products/pendant-dining-bar.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Pendant</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset"
+              data-src="assets/products/lamp-arched-marble.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Lamp</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset"
+              data-src="assets/products/ceiling-triple-ring.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Ceiling</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/track-system.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Track</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset"
+              data-src="assets/products/outdoor-bollard.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Outdoor</button>
+            <button type="button" class="btn btn-glass btn-sm js-cat-preset" data-src="assets/products/smart-halo.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Smart</button>
           </div>
         </div>
 
         <div class="form-group">
           <label class="form-label">Category Description</label>
-          <textarea name="desc" class="form-control" rows="2" placeholder="Brief description to display on category banners..."></textarea>
+          <textarea name="desc" class="form-control" rows="2"
+            placeholder="Brief description to display on category banners..."></textarea>
         </div>
 
         <div style="display: flex; gap: 12px; justify-content: flex-end;">
@@ -1066,18 +1197,21 @@
   <div class="modal-backdrop" id="blogAdminModal">
     <div class="modal-dialog" style="max-width: 820px;">
       <button class="modal-close-btn" id="btnCloseBlogAdminModal"><i class="fa-solid fa-xmark"></i></button>
-      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 20px;" id="blogAdminModalTitle">Add New Blog Article</h2>
+      <h2 style="font-family: var(--font-serif); color: #fff; font-size: 1.6rem; margin-bottom: 20px;"
+        id="blogAdminModalTitle">Add New Blog Article</h2>
 
       <form id="blogAdminForm">
         <div class="form-group">
           <label class="form-label">Article Title *</label>
-          <input type="text" name="title" id="blogAdminTitleInput" class="form-control" placeholder="e.g. How to Plan Layered Lighting for Double-Height Living Rooms" required />
+          <input type="text" name="title" id="blogAdminTitleInput" class="form-control"
+            placeholder="e.g. How to Plan Layered Lighting for Double-Height Living Rooms" required />
         </div>
 
         <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px;">
           <div class="form-group">
             <label class="form-label">Category *</label>
-            <input type="text" name="category" id="blogAdminCategoryInput" list="blogCategoryList" class="form-control" placeholder="e.g. Design Guide" required />
+            <input type="text" name="category" id="blogAdminCategoryInput" list="blogCategoryList" class="form-control"
+              placeholder="e.g. Design Guide" required />
             <datalist id="blogCategoryList">
               <option value="Design Guide" />
               <option value="Lighting 101" />
@@ -1091,7 +1225,8 @@
 
           <div class="form-group">
             <label class="form-label">Author Name</label>
-            <input type="text" name="author" class="form-control" value="JK Lights Architectural Studio" placeholder="e.g. JK Design Studio" />
+            <input type="text" name="author" class="form-control" value="JK Lights Architectural Studio"
+              placeholder="e.g. JK Design Studio" />
           </div>
 
           <div class="form-group">
@@ -1103,8 +1238,10 @@
         <div class="form-group">
           <label class="form-label">Cover Image Path, URL or Upload *</label>
           <div style="display: flex; gap: 8px;">
-            <input type="text" name="image" id="blogModalImageInput" class="form-control" placeholder="assets/products/... or upload photo" required />
-            <label class="btn btn-gold btn-sm" style="cursor: pointer; white-space: nowrap; padding: 6px 12px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px;">
+            <input type="text" name="image" id="blogModalImageInput" class="form-control"
+              placeholder="assets/products/... or upload photo" required />
+            <label class="btn btn-gold btn-sm"
+              style="cursor: pointer; white-space: nowrap; padding: 6px 12px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px;">
               <i class="fa-solid fa-cloud-arrow-up"></i> Upload
               <input type="file" id="blogModalFileInput" accept="image/*" style="display: none;" />
             </label>
@@ -1112,40 +1249,63 @@
         </div>
 
         <!-- Image Preview & Presets Row -->
-        <div class="form-group" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; margin-bottom: 16px;">
+        <div class="form-group"
+          style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; margin-bottom: 16px;">
           <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
-            <img id="blogModalImgPreview" src="assets/products/chandelier-imperial-crown.jpg" alt="Preview" style="width: 80px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid var(--gold-border-bright);" />
+            <img id="blogModalImgPreview" src="assets/products/chandelier-imperial-crown.jpg" alt="Preview"
+              style="width: 80px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid var(--gold-border-bright);" />
             <div>
               <div style="font-size: 0.85rem; font-weight: 600; color: #fff;">Selected Cover Image Preview</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted);" id="blogModalImgPathText">assets/products/chandelier-imperial-crown.jpg</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);" id="blogModalImgPathText">
+                assets/products/chandelier-imperial-crown.jpg</div>
             </div>
           </div>
-          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick Image Presets:</div>
+          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick Image
+            Presets:</div>
           <div style="display: flex; flex-wrap: wrap; gap: 6px;" id="blogModalImagePresets">
-            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/hero.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Luxury Living Hero</button>
-            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/products/chandelier-imperial-crown.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Grand Chandelier</button>
-            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/products/double-height-spiral.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Double Height</button>
-            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/products/wall-marble.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Marble Wall Sconce</button>
-            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/products/wall-up-down.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Up-Down Sconce</button>
-            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/products/track-system.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Magnetic Tracks</button>
-            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/products/pendant-dining-bar.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Dining Pendant</button>
-            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/products/smart-halo.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Smart Lighting</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/hero.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Luxury Living Hero</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset"
+              data-src="assets/products/chandelier-imperial-crown.jpg"
+              style="font-size: 0.72rem; padding: 4px 8px;">Grand Chandelier</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset"
+              data-src="assets/products/double-height-spiral.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Double
+              Height</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset"
+              data-src="assets/products/wall-marble.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Marble Wall
+              Sconce</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset"
+              data-src="assets/products/wall-up-down.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Up-Down
+              Sconce</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset"
+              data-src="assets/products/track-system.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Magnetic
+              Tracks</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset"
+              data-src="assets/products/pendant-dining-bar.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Dining
+              Pendant</button>
+            <button type="button" class="btn btn-glass btn-sm js-blog-img-preset"
+              data-src="assets/products/smart-halo.jpg" style="font-size: 0.72rem; padding: 4px 8px;">Smart
+              Lighting</button>
           </div>
         </div>
 
         <div class="form-group">
           <label class="form-label">Short Summary / Excerpt * (Displayed on blog card previews)</label>
-          <textarea name="summary" class="form-control" rows="2" placeholder="Brief 1-2 sentence hook for the card preview..." required></textarea>
+          <textarea name="summary" class="form-control" rows="2"
+            placeholder="Brief 1-2 sentence hook for the card preview..." required></textarea>
         </div>
 
         <div class="form-group">
           <label class="form-label">Full Article Content (Detailed paragraphs and guidelines)</label>
-          <textarea name="content" class="form-control" rows="6" placeholder="Write full article body here. Separate paragraphs with line breaks..."></textarea>
+          <textarea name="content" class="form-control" rows="6"
+            placeholder="Write full article body here. Separate paragraphs with line breaks..."></textarea>
         </div>
 
         <div class="form-group">
-          <label class="form-label"><i class="fa-solid fa-lightbulb" style="color: var(--gold-400);"></i> Expert Pro-Tip Callout Box (Optional)</label>
-          <input type="text" name="proTip" class="form-control" placeholder="e.g. Always layer ambient cove lights with accent wall sconces for luxury depth." />
+          <label class="form-label"><i class="fa-solid fa-lightbulb" style="color: var(--gold-400);"></i> Expert Pro-Tip
+            Callout Box (Optional)</label>
+          <input type="text" name="proTip" class="form-control"
+            placeholder="e.g. Always layer ambient cove lights with accent wall sconces for luxury depth." />
         </div>
 
         <div style="display: flex; gap: 24px; margin-bottom: 24px;">
@@ -1175,6 +1335,7 @@
   </div>
 
   <!-- Standalone JavaScript (Runs in file:// and http://) -->
-  <script src="js/admin-app.js"></script>
+  <script type="module" src="/js/admin-app.js"></script>
 </body>
+
 </html>
