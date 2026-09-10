@@ -1301,7 +1301,7 @@ function openBlogModal(blogId) {
       ` : ''}
     </div>
     <div style="display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap; border-top: 1px solid var(--border-light); padding-top: 18px;">
-      <a href="https://wa.me/919898091234?text=${whatsappMessage}" target="_blank" class="btn btn-whatsapp btn-sm">
+      <a href="https://wa.me/918460576753?text=${whatsappMessage}" target="_blank" class="btn btn-whatsapp btn-sm">
         <i class="fa-brands fa-whatsapp"></i> Chat About This Guide
       </a>
       <button class="btn btn-gold btn-sm js-open-consultation" onclick="document.getElementById('blogModal').classList.remove('active');">

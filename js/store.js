@@ -24,7 +24,7 @@ const STORAGE_KEYS = {
   STATS: 'jk_lights_stats'
 };
 
-const STORE_VERSION = 'jk_lights_v2_categorized';
+const STORE_VERSION = 'jk_lights_v3_clean';
 
 export function initStore() {
   try {
@@ -34,6 +34,8 @@ export function initStore() {
       localStorage.setItem(STORAGE_KEYS.CATEGORIES, JSON.stringify(DEFAULT_CATEGORIES));
       localStorage.setItem(STORAGE_KEYS.SLIDERS, JSON.stringify(DEFAULT_SLIDERS));
       localStorage.setItem(STORAGE_KEYS.BLOGS, JSON.stringify(DEFAULT_BLOGS));
+      localStorage.setItem(STORAGE_KEYS.STORE_INFO, JSON.stringify(DEFAULT_STORE_INFO));
+      localStorage.setItem(STORAGE_KEYS.INQUIRIES, JSON.stringify([]));
       localStorage.setItem('jk_lights_store_version', STORE_VERSION);
     } else {
       const existingProducts = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
@@ -48,6 +50,7 @@ export function initStore() {
   } catch(e) {
     localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(DEFAULT_PRODUCTS));
     localStorage.setItem(STORAGE_KEYS.CATEGORIES, JSON.stringify(DEFAULT_CATEGORIES));
+    localStorage.setItem(STORAGE_KEYS.INQUIRIES, JSON.stringify([]));
     localStorage.setItem('jk_lights_store_version', STORE_VERSION);
   }
   if (!localStorage.getItem(STORAGE_KEYS.STORE_INFO)) {
@@ -57,7 +60,7 @@ export function initStore() {
     localStorage.setItem(STORAGE_KEYS.ROOMS, JSON.stringify(DEFAULT_ROOMS));
   }
   if (!localStorage.getItem(STORAGE_KEYS.INQUIRIES)) {
-    localStorage.setItem(STORAGE_KEYS.INQUIRIES, JSON.stringify(DEFAULT_INQUIRIES));
+    localStorage.setItem(STORAGE_KEYS.INQUIRIES, JSON.stringify([]));
   }
   if (!localStorage.getItem(STORAGE_KEYS.SLIDERS)) {
     localStorage.setItem(STORAGE_KEYS.SLIDERS, JSON.stringify(DEFAULT_SLIDERS));

@@ -11,9 +11,11 @@
     city: "Gandhinagar, Gujarat",
     address: "2nd Floor, VTC Complex (Vrundavan Trade Center), Above Kabir World, Reliance Cross Road, Kudasan, Gandhinagar - 382421",
     landmark: "Above Kabir World, Opp. Kanam Farm",
-    phone: "+91 98980 91234",
-    whatsapp: "919898091234",
+    phone: "+91 84605 76753",
+    whatsapp: "918460576753",
     email: "contact@jklights.com",
+    instagram: "https://www.instagram.com/jk_lights_gandhinagar?igsh=MXd1NG5zazA0bXY0Yw==",
+    facebook: "https://www.facebook.com/jk_lights_gandhinagar",
     timingsWeekdays: "Mon - Sat: 10:00 AM - 9:30 PM",
     timingsSunday: "Sunday: 11:00 AM - 8:00 PM",
     gmapsQuery: "https://maps.google.com/?q=J+K+Lights+Gandhinagar+Kudasan",
@@ -60,7 +62,7 @@
       btnText: "View Grand Chandeliers",
       btnLink: "#productsSection",
       secondaryBtnText: "WhatsApp Inquiry",
-      secondaryBtnLink: "https://wa.me/919898091234",
+      secondaryBtnLink: "https://wa.me/918460576753",
       order: 3,
       active: true
     },
@@ -1472,75 +1474,8 @@
     }
   ];
 
-  const DEFAULT_INQUIRIES = [
-    {
-      id: "inq-101",
-      customerName: "Rajesh Patel",
-      phone: "+91 98251 44321",
-      roomType: "Living Room Duplex",
-      interest: "Royal Crystal Grand Chandelier",
-      preferredDate: "Tomorrow, 4:00 PM",
-      notes: "Needs consultation for high ceiling bungalow in Infocity Gandhinagar.",
-      status: "New",
-      dateSubmitted: "2026-09-08 11:30 AM"
-    },
-    {
-      id: "inq-102",
-      customerName: "Dr. Meera Shah",
-      phone: "+91 94280 88712",
-      roomType: "Modern Clinic / Office",
-      interest: "Magnetic Track Light System",
-      preferredDate: "Weekend 11:00 AM",
-      notes: "Requires anti-glare lighting for new consultation room in Kudasan.",
-      status: "Scheduled",
-      dateSubmitted: "2026-09-07 05:15 PM"
-    }
-  ];
-
-  const DEFAULT_INVOICES = [
-    {
-      id: "JK-INV-2026-8801",
-      date: "2026-09-08",
-      dueDate: "2026-09-15",
-      customerName: "Chirag Patel",
-      phone: "+91 98250 11223",
-      email: "chirag.patel@gmail.com",
-      address: "Bungalow 42, Kudasan Green Villa, Gandhinagar - 382421",
-      roomType: "Living Room Duplex & Foyer",
-      status: "50% Advance Received",
-      statusType: "advance",
-      items: [
-        { name: "Royal Crystal Grand Chandelier (18-Light E14)", hsn: "9405", qty: 1, rate: 24999, discount: 0, amount: 24999 },
-        { name: "Dual Beam Luxury Wall Sconce (CREE LED)", hsn: "9405", qty: 4, rate: 1999, discount: 400, amount: 7596 }
-      ],
-      subtotal: 32595,
-      cgst: 2933.55,
-      sgst: 2933.55,
-      grandTotal: 38462,
-      notes: "Site visit completed. Chandelier drop customized to 14ft with safety cable anchor testing."
-    },
-    {
-      id: "JK-INV-2026-8802",
-      date: "2026-09-07",
-      dueDate: "2026-09-14",
-      customerName: "Bhavin Shah",
-      phone: "+91 97240 55667",
-      email: "bhavin.shah@yahoo.com",
-      address: "A-502, Infocity Heights, Gandhinagar",
-      roomType: "Dining Area & Kitchen",
-      status: "Paid in Full",
-      statusType: "paid",
-      items: [
-        { name: "Modern Cluster Pendant Light (3-Cone Gold)", hsn: "9405", qty: 2, rate: 4999, discount: 500, amount: 9498 },
-        { name: "Geometric Nested LED Ceiling Light (72W Tunable)", hsn: "9405", qty: 1, rate: 3499, discount: 0, amount: 3499 }
-      ],
-      subtotal: 12997,
-      cgst: 1169.73,
-      sgst: 1169.73,
-      grandTotal: 15336,
-      notes: "Showroom cash receipt #7712. Includes 1-Year Comprehensive Warranty on drivers."
-    }
-  ];
+  const DEFAULT_INQUIRIES = [];
+  const DEFAULT_INVOICES = [];
 
   const DEFAULT_BLOGS = [
     {
@@ -1619,7 +1554,7 @@ Key benefits of magnetic track systems:
     STATS: 'jk_lights_stats'
   };
 
-  const STORE_VERSION = 'jk_lights_v2_categorized';
+  const STORE_VERSION = 'jk_lights_v3_clean';
   try {
     const currentVer = localStorage.getItem('jk_lights_store_version');
     if (currentVer !== STORE_VERSION) {
@@ -1627,6 +1562,9 @@ Key benefits of magnetic track systems:
       localStorage.setItem(KEYS.CATEGORIES, JSON.stringify(DEFAULT_CATEGORIES));
       localStorage.setItem(KEYS.ROOMS, JSON.stringify(DEFAULT_ROOMS));
       localStorage.setItem(KEYS.BLOGS, JSON.stringify(DEFAULT_BLOGS));
+      localStorage.setItem(KEYS.STORE_INFO, JSON.stringify(DEFAULT_STORE_INFO));
+      localStorage.setItem(KEYS.INQUIRIES, JSON.stringify([]));
+      localStorage.setItem(KEYS.INVOICES, JSON.stringify([]));
       localStorage.setItem('jk_lights_store_version', STORE_VERSION);
     }
   } catch (e) {}
@@ -1919,7 +1857,7 @@ Key benefits of magnetic track systems:
         recentTbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-secondary);">No customer inquiries yet.</td></tr>`;
       } else {
         recentTbody.innerHTML = rec.map(inq => {
-          const cleanPhone = inq.phone ? inq.phone.replace(/[^0-9]/g, '') : '919898091234';
+          const cleanPhone = inq.phone ? inq.phone.replace(/[^0-9]/g, '') : '918460576753';
           return `
             <tr>
               <td><strong>${inq.customerName}</strong><div style="font-size: 0.78rem; color: var(--text-secondary);">${inq.phone}</div></td>
@@ -1988,7 +1926,7 @@ Key benefits of magnetic track systems:
     }
 
     tbody.innerHTML = list.map(inv => {
-      const cleanPhone = inv.phone ? inv.phone.replace(/[^0-9]/g, '') : '919898091234';
+      const cleanPhone = inv.phone ? inv.phone.replace(/[^0-9]/g, '') : '918460576753';
       const statusClass = inv.statusType || (inv.status.toLowerCase().includes('paid') ? 'paid' : (inv.status.toLowerCase().includes('advance') ? 'advance' : 'estimate'));
 
       return `
@@ -2263,7 +2201,7 @@ Key benefits of magnetic track systems:
                   <div class="inv-brand-sub">Lighting & A Brighter Tomorrow</div>
                   <div style="font-size: 0.75rem; color: #64748b; margin-top: 4px;">
                     2nd Floor, VTC Complex, Above Kabir World, Kudasan, Gandhinagar - 382421<br />
-                    GSTIN: <strong>24AAACJ1234F1Z5</strong> | State: Gujarat (24) | Ph: +91 98980 91234
+                    GSTIN: <strong>24AAACJ1234F1Z5</strong> | State: Gujarat (24) | Ph: +91 84605 76753
                   </div>
                 </div>
               </div>
@@ -3054,7 +2992,7 @@ Key benefits of magnetic track systems:
     }
 
     tbody.innerHTML = inqs.map(inq => {
-      const cleanPhone = inq.phone ? inq.phone.replace(/[^0-9]/g, '') : '919898091234';
+      const cleanPhone = inq.phone ? inq.phone.replace(/[^0-9]/g, '') : '918460576753';
 
       return `
         <tr>

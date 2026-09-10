@@ -7,9 +7,11 @@ export const DEFAULT_STORE_INFO = {
   city: "Gandhinagar, Gujarat",
   address: "2nd Floor, VTC Complex (Vrundavan Trade Center), Above Kabir World, Reliance Cross Road, Kudasan, Gandhinagar - 382421",
   landmark: "Above Kabir World, Opp. Kanam Farm",
-  phone: "+91 98980 91234",
-  whatsapp: "919898091234",
+  phone: "+91 84605 76753",
+  whatsapp: "918460576753",
   email: "contact@jklights.com",
+  instagram: "https://www.instagram.com/jk_lights_gandhinagar?igsh=MXd1NG5zazA0bXY0Yw==",
+  facebook: "https://www.facebook.com/jk_lights_gandhinagar",
   timingsWeekdays: "Mon - Sat: 10:00 AM - 9:30 PM",
   timingsSunday: "Sunday: 11:00 AM - 8:00 PM",
   gmapsQuery: "https://maps.google.com/?q=J+K+Lights+Gandhinagar+Kudasan",
@@ -1935,30 +1937,7 @@ export const DEFAULT_PRODUCTS = [
   }
 ];
 
-export const DEFAULT_INQUIRIES = [
-  {
-    id: "inq-101",
-    customerName: "Rajesh Patel",
-    phone: "+91 98251 44321",
-    roomType: "Living Room Duplex",
-    interest: "MTD23775-7D Grand Duplex Spiral Chandelier",
-    preferredDate: "Tomorrow, 4:00 PM",
-    notes: "Needs consultation for high ceiling bungalow in Infocity Gandhinagar.",
-    status: "New",
-    dateSubmitted: "2026-09-08 11:30 AM"
-  },
-  {
-    id: "inq-102",
-    customerName: "Dr. Meera Shah",
-    phone: "+91 94280 88712",
-    roomType: "Modern Clinic / Office",
-    interest: "GMT-01 48V Magnetic Track Light System",
-    preferredDate: "Weekend 11:00 AM",
-    notes: "Requires anti-glare UGR<16 lighting for new consultation room in Kudasan.",
-    status: "Showroom Scheduled",
-    dateSubmitted: "2026-09-07 05:15 PM"
-  }
-];
+export const DEFAULT_INQUIRIES = [];
 
 export const DEFAULT_SLIDERS = [
   {
@@ -1999,7 +1978,7 @@ export const DEFAULT_SLIDERS = [
     btnText: "View Grand Chandeliers",
     btnLink: "#productsSection",
     secondaryBtnText: "WhatsApp Inquiry",
-    secondaryBtnLink: "https://wa.me/919898091234?text=Hello%20JK%20Lights!%20I%20am%20interested%20in%20the%20Royal%20Crystal%20Chandelier.",
+    secondaryBtnLink: "https://wa.me/918460576753?text=Hello%20JK%20Lights!%20I%20am%20interested%20in%20the%20Royal%20Crystal%20Chandelier.",
     order: 3,
     active: true
   },

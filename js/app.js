@@ -12,9 +12,11 @@
     city: "Gandhinagar, Gujarat",
     address: "2nd Floor, VTC Complex (Vrundavan Trade Center), Above Kabir World, Reliance Cross Road, Kudasan, Gandhinagar - 382421",
     landmark: "Above Kabir World, Opp. Kanam Farm",
-    phone: "+91 98980 91234",
-    whatsapp: "919898091234",
+    phone: "+91 84605 76753",
+    whatsapp: "918460576753",
     email: "contact@jklights.com",
+    instagram: "https://www.instagram.com/jk_lights_gandhinagar?igsh=MXd1NG5zazA0bXY0Yw==",
+    facebook: "https://www.facebook.com/jk_lights_gandhinagar",
     timingsWeekdays: "Mon - Sat: 10:00 AM - 9:30 PM",
     timingsSunday: "Sunday: 11:00 AM - 8:00 PM",
     gmapsQuery: "https://maps.google.com/?q=J+K+Lights+Gandhinagar+Kudasan",
@@ -62,7 +64,7 @@
       btnText: "View Grand Chandeliers",
       btnLink: "#productsSection",
       secondaryBtnText: "WhatsApp Inquiry",
-      secondaryBtnLink: "https://wa.me/919898091234?text=Hello%20JK%20Lights!%20I%20am%20interested%20in%20the%20Royal%20Crystal%20Chandelier.",
+      secondaryBtnLink: "https://wa.me/918460576753?text=Hello%20JK%20Lights!%20I%20am%20interested%20in%20the%20Royal%20Crystal%20Chandelier.",
       order: 3,
       active: true
     },
@@ -1839,7 +1841,7 @@ Key benefits of magnetic track systems:
         date: new Date().toLocaleDateString('en-IN', { day: '2-digit', month: '2-digit', year: 'numeric' }),
         dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString('en-IN', { day: '2-digit', month: '2-digit', year: 'numeric' }),
         customerName: customerData.customerName || 'Valued Customer',
-        phone: customerData.phone || '+91 98980 91234',
+        phone: customerData.phone || '+91 84605 76753',
         email: customerData.email || 'customer@jklights.com',
         address: customerData.address || 'Gandhinagar / Ahmedabad, Gujarat',
         roomType: customerData.roomType || 'Residential Luxury Lighting',
@@ -1913,7 +1915,7 @@ Key benefits of magnetic track systems:
 
               <div class="form-group">
                 <label class="form-label">WhatsApp / Phone *</label>
-                <input type="tel" name="clientPhone" class="form-control" placeholder="e.g. +91 98980 12345" required />
+                <input type="tel" name="clientPhone" class="form-control" placeholder="e.g. +91 84605 76753" required />
               </div>
             </div>
 
@@ -2018,7 +2020,7 @@ Key benefits of magnetic track systems:
                     <div class="inv-brand-sub">Lighting & A Brighter Tomorrow</div>
                     <div style="font-size: 0.75rem; color: #64748b; margin-top: 4px;">
                       2nd Floor, VTC Complex, Above Kabir World, Kudasan, Gandhinagar - 382421<br />
-                      GSTIN: <strong>24AAACJ1234F1Z5</strong> | State: Gujarat (24) | Ph: +91 98980 91234
+                      GSTIN: <strong>24AAACJ1234F1Z5</strong> | State: Gujarat (24) | Ph: +91 84605 76753
                     </div>
                   </div>
                 </div>
@@ -2566,7 +2568,7 @@ Key benefits of magnetic track systems:
     return `
       <div class="product-card" data-id="${prod.id}">
         <div class="product-media">
-          <img src="${prod.image}" alt="${prod.name}" class="product-img" loading="lazy" />
+          <img src="${prod.image}" alt="${prod.name}" class="product-img" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.jpg'" />
           ${prod.badge ? `<span class="product-badge">${prod.badge}</span>` : ''}
           <button class="wishlist-heart-btn ${isWishlisted ? 'active' : ''}" data-id="${prod.id}" title="Add to Wishlist">
             <i class="fa-${isWishlisted ? 'solid' : 'regular'} fa-heart"></i>
@@ -2915,7 +2917,7 @@ Key benefits of magnetic track systems:
         ` : ''}
       </div>
       <div style="display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap; border-top: 1px solid var(--border-light); padding-top: 18px;">
-        <a href="https://wa.me/919898091234?text=${whatsappMessage}" target="_blank" class="btn btn-whatsapp btn-sm">
+        <a href="https://wa.me/918460576753?text=${whatsappMessage}" target="_blank" class="btn btn-whatsapp btn-sm">
           <i class="fa-brands fa-whatsapp"></i> Chat About This Guide
         </a>
         <button class="btn btn-gold btn-sm js-open-consultation" onclick="document.getElementById('blogModal').classList.remove('active');">
