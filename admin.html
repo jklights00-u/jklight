@@ -23,6 +23,41 @@
 
 <body class="admin-body">
 
+  <!-- ================= ADMIN PASSWORD LOCK SCREEN ================= -->
+  <div class="admin-lock-screen" id="adminLockScreen">
+    <div class="admin-lock-card" id="adminLockCard">
+      <div class="lock-avatar-wrap">
+        <img src="assets/logo.jpg" alt="JK Lights Logo" onerror="this.outerHTML='<i class=\'fa-solid fa-shield-halved\'></i>'" />
+      </div>
+      <h2 class="admin-lock-title">JK LIGHTS ADMIN</h2>
+      <p class="admin-lock-subtitle">Gandhinagar Showroom Secure Portal<br />Enter administrator password to unlock dashboard</p>
+
+      <form id="adminLoginForm" onsubmit="return false;">
+        <div class="lock-input-group">
+          <i class="fa-solid fa-key lock-icon"></i>
+          <input type="password" id="adminPasswordInput" class="lock-password-input" placeholder="Enter Admin Password..." autocomplete="current-password" required autofocus />
+          <button type="button" class="lock-toggle-visibility" id="btnTogglePassword" title="Show/Hide Password" tabindex="-1">
+            <i class="fa-solid fa-eye" id="eyeIcon"></i>
+          </button>
+        </div>
+
+        <div class="lock-error-msg" id="lockErrorMsg">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span id="lockErrorText">Incorrect Password! Access Denied.</span>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-unlock-admin" id="btnUnlockAdmin">
+          <i class="fa-solid fa-lock-open"></i> Unlock Dashboard
+        </button>
+      </form>
+
+      <div class="lock-footer-links">
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Return to Storefront</a>
+        <a href="https://wa.me/918460576753" target="_blank"><i class="fa-brands fa-whatsapp"></i> Support</a>
+      </div>
+    </div>
+  </div>
+
   <!-- ================= ADMIN TOP NAVBAR ================= -->
   <header class="admin-navbar">
     <div class="admin-nav-left">
@@ -52,11 +87,15 @@
       <a href="index.html" class="btn btn-gold btn-sm" target="_blank">
         <i class="fa-solid fa-arrow-up-right-from-square"></i> View Storefront
       </a>
+
+      <button class="btn btn-glass btn-sm" id="btnAdminLogout" title="Lock & Logout of Admin Portal" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.4);">
+        <i class="fa-solid fa-lock"></i> Lock Admin
+      </button>
     </div>
   </header>
 
   <!-- ================= ADMIN MAIN LAYOUT ================= -->
-  <div class="admin-layout">
+  <div class="admin-layout" id="adminMainLayout">
     <!-- Sidebar Menu -->
     <aside class="admin-sidebar">
       <div class="admin-menu-item active" data-target="panelDashboard">
@@ -110,7 +149,7 @@
           style="font-size: 0.75rem; color: var(--gold-400); font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">
           Showroom Location</div>
         <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4;">
-          2nd Floor, VTC Complex, Above Kabir World, Kudasan, Gandhinagar - 382421
+          1st Floor, VTC Complex, B-108, above Kabir World, Kudasan, Gandhinagar, Gujarat 382421
         </div>
       </div>
     </aside>
@@ -494,28 +533,27 @@
         </div>
       </section>
 
-      <!-- PANEL 6: OWNERS & LEADERSHIP (NEW!) -->
+      <!-- PANEL 6: OWNERS & LEADERSHIP -->
       <section class="admin-view-panel" id="panelOwners">
         <div class="panel-header">
           <div>
-            <h1 class="panel-title">Showroom Founders & Leadership</h1>
-            <p class="panel-subtitle">Official leadership profiles, design credentials, and executive direct contact</p>
+            <h1 class="panel-title">Showroom Owners & Leadership</h1>
+            <p class="panel-subtitle">Official owner profiles, design credentials, and direct consultation contacts</p>
           </div>
         </div>
 
         <div class="owners-grid">
-          <!-- Sandip Patel Card -->
+          <!-- 1st Owner: Sandip Patel Card -->
           <div class="owner-card">
             <div class="owner-img-wrap">
-              <span class="owner-badge-tag"><i class="fa-solid fa-crown" style="color: var(--gold-400);"></i> Founder &
-                Managing Director</span>
-              <img src="assets/owners/sandip-patel.jpg" alt="Sandip Patel - Founder & MD" class="owner-img" />
+              <span class="owner-badge-tag"><i class="fa-solid fa-crown" style="color: var(--gold-400);"></i> Owner</span>
+              <img src="assets/owners/sandip-patel.jpg" alt="Sandip Patel - Owner" class="owner-img" />
             </div>
             <div class="owner-details">
               <h3 class="owner-name">Sandip Patel</h3>
-              <div class="owner-role">Founder & Managing Director | Senior Lighting Architect</div>
+              <div class="owner-role">Owner | Senior Lighting Architect</div>
               <p class="owner-bio">
-                Visionary founder behind JK Lights Gandhinagar with 12+ years of expertise in luxury residential
+                Visionary owner at JK Lights Gandhinagar with 12+ years of expertise in luxury residential
                 illumination. Pioneered custom double-height crystal chandelier installations, 48V magnetic track
                 layouts, and architectural lighting designs across elite villas and bungalows in Gandhinagar, Gift City,
                 and Ahmedabad.
@@ -542,19 +580,52 @@
             </div>
           </div>
 
-          <!-- Jigisha Prajapati Card -->
+          <!-- 2nd Owner: Kaushik Prajapati Card -->
           <div class="owner-card">
             <div class="owner-img-wrap">
-              <span class="owner-badge-tag"><i class="fa-solid fa-star" style="color: var(--gold-400);"></i> Co-Founder
-                & Creative Director</span>
+              <span class="owner-badge-tag"><i class="fa-solid fa-crown" style="color: var(--gold-400);"></i> Owner</span>
+              <img
+                src="assets/owners/kaushik-prajapati.png"
+                alt="Kaushik Prajapati - Owner" class="owner-img"
+                onerror="this.src='assets/owners/kaushik-prajapati.jpg'" />
+            </div>
+            <div class="owner-details">
+              <h3 class="owner-name">Kaushik Prajapati</h3>
+              <div class="owner-role">Owner | Showroom & Lighting Consultant</div>
+              <p class="owner-bio">
+                Oversees client consultations, architectural lighting project deliveries, and vendor coordination at JK Lights Gandhinagar. Ensures accurate room lumen planning, low-glare darklight integration, and flawless fixture installations across Gujarat's premier residences.
+              </p>
+
+              <div class="owner-highlights">
+                <span class="owner-pill"><i class="fa-solid fa-shield-halved" style="color: var(--gold-400);"></i> Project Consultant</span>
+                <span class="owner-pill"><i class="fa-solid fa-lightbulb" style="color: var(--gold-400);"></i> Architectural Lighting</span>
+                <span class="owner-pill"><i class="fa-solid fa-location-dot" style="color: var(--gold-400);"></i> Kudasan Showroom</span>
+              </div>
+
+              <div style="display: flex; gap: 12px; margin-top: auto;">
+                <a href="https://wa.me/918460576753?text=Hello%20Kaushik%20Prajapati%20Sir!%20I%20would%20like%20to%20discuss%20a%20luxury%20lighting%20project."
+                  target="_blank" class="btn btn-whatsapp" style="flex: 1;">
+                  <i class="fa-brands fa-whatsapp"></i> Chat with Kaushik Prajapati
+                </a>
+                <a href="tel:+918460576753" class="btn btn-glass" title="Call Direct">
+                  <i class="fa-solid fa-phone"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3rd Owner: Jigisha Prajapati Card -->
+          <div class="owner-card">
+            <div class="owner-img-wrap">
+              <span class="owner-badge-tag"><i class="fa-solid fa-crown" style="color: var(--gold-400);"></i> Owner</span>
               <img
                 src="assets/owners/jigisha-prajapati.png"
-                alt="Jigisha Prajapati - Co-Founder & Creative Director" class="owner-img"
+                alt="Jigisha Prajapati - Owner" class="owner-img"
                 onerror="this.src='assets/owners/jigisha-prajapati.png'" />
             </div>
             <div class="owner-details">
               <h3 class="owner-name">Jigisha Prajapati</h3>
-              <div class="owner-role">Co-Founder & Creative Director | Interior Lighting Stylist</div>
+              <div class="owner-role">Owner | Interior Lighting Stylist</div>
               <p class="owner-bio">
                 Leads creative aesthetics, color temperature harmonization (2700K Warm vs 4000K Neutral), and luxury
                 decorative luminaire curation at JK Lights. Specializes in tailoring personalized lighting blueprints
@@ -610,13 +681,13 @@
             <div class="form-group">
               <label class="form-label">Full Showroom Address (Google My Business)</label>
               <textarea name="address" class="form-control" rows="2"
-                required>2nd Floor, VTC Complex (Vrundavan Trade Center), Above Kabir World, Reliance Cross Road, Kudasan, Gandhinagar - 382421</textarea>
+                required>1st Floor, VTC Complex, B-108, above Kabir World, Kudasan, Gandhinagar, Gujarat 382421</textarea>
             </div>
 
             <div class="settings-grid">
               <div class="form-group">
                 <label class="form-label">Landmark</label>
-                <input type="text" name="landmark" class="form-control" value="Above Kabir World, Opp. Kanam Farm" />
+                <input type="text" name="landmark" class="form-control" value="B-108, Above Kabir World, Opp. Kanam Farm" />
               </div>
 
               <div class="form-group">
@@ -1335,7 +1406,7 @@
   </div>
 
   <!-- Standalone JavaScript (Runs in file:// and http://) -->
-  <script type="module" src="/js/admin-app.js"></script>
+  <script src="js/admin-app.js"></script>
 </body>
 
 </html>

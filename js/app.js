@@ -10,8 +10,8 @@
     name: "JK Lights",
     tagline: "Experience The Symphony of Luxury Illumination",
     city: "Gandhinagar, Gujarat",
-    address: "2nd Floor, VTC Complex (Vrundavan Trade Center), Above Kabir World, Reliance Cross Road, Kudasan, Gandhinagar - 382421",
-    landmark: "Above Kabir World, Opp. Kanam Farm",
+    address: "1st Floor, VTC Complex, B-108, above Kabir World, Kudasan, Gandhinagar, Gujarat 382421",
+    landmark: "B-108, Above Kabir World, Opp. Kanam Farm",
     phone: "+91 84605 76753",
     whatsapp: "918460576753",
     email: "contact@jklights.com",
@@ -1565,7 +1565,7 @@ Key benefits of magnetic track systems:
     {
       id: "faq-5",
       question: "Where is the JK Lights showroom located in Gandhinagar?",
-      answer: "Our flagship showroom is located on the 2nd Floor, VTC Complex (Vrundavan Trade Center), Above Kabir World, Reliance Cross Road, Kudasan, Gandhinagar - 382421. Open Mon-Sat 10:00 AM - 9:30 PM & Sunday 11:00 AM - 8:00 PM."
+      answer: "Our flagship showroom is located at 1st Floor, VTC Complex, B-108, above Kabir World, Kudasan, Gandhinagar, Gujarat 382421. Open Mon-Sat 10:00 AM - 9:30 PM & Sunday 11:00 AM - 8:00 PM."
     }
   ];
 
@@ -2019,7 +2019,7 @@ Key benefits of magnetic track systems:
                     <div class="inv-brand-title">JK LIGHTS</div>
                     <div class="inv-brand-sub">Lighting & A Brighter Tomorrow</div>
                     <div style="font-size: 0.75rem; color: #64748b; margin-top: 4px;">
-                      2nd Floor, VTC Complex, Above Kabir World, Kudasan, Gandhinagar - 382421<br />
+                      1st Floor, VTC Complex, B-108, above Kabir World, Kudasan, Gandhinagar, Gujarat 382421<br />
                       GSTIN: <strong>24AAACJ1234F1Z5</strong> | State: Gujarat (24) | Ph: +91 84605 76753
                     </div>
                   </div>
@@ -2169,13 +2169,18 @@ Key benefits of magnetic track systems:
   let sliderInterval = null;
   const SLIDE_DURATION = 5500;
 
-  document.addEventListener('DOMContentLoaded', () => {
+  function startApp() {
     init();
-
     window.addEventListener('jk_store_updated', () => {
       renderAll();
     });
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startApp);
+  } else {
+    startApp();
+  }
 
   function init() {
     try {

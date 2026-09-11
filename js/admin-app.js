@@ -9,8 +9,8 @@
   const DEFAULT_STORE_INFO = {
     name: "JK Lights",
     city: "Gandhinagar, Gujarat",
-    address: "2nd Floor, VTC Complex (Vrundavan Trade Center), Above Kabir World, Reliance Cross Road, Kudasan, Gandhinagar - 382421",
-    landmark: "Above Kabir World, Opp. Kanam Farm",
+    address: "1st Floor, VTC Complex, B-108, above Kabir World, Kudasan, Gandhinagar, Gujarat 382421",
+    landmark: "B-108, Above Kabir World, Opp. Kanam Farm",
     phone: "+91 84605 76753",
     whatsapp: "918460576753",
     email: "contact@jklights.com",
@@ -1779,9 +1779,108 @@ Key benefits of magnetic track systems:
   let currentEditingCategoryId = null;
   let currentEditingBlogId = null;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    initAdmin();
+  const ADMIN_SECRET_KEY = 'Jigo$9094Pagal';
+  const AUTH_STORAGE_KEY = 'jk_lights_admin_auth_v1';
 
+  function isUserAuthenticated() {
+    return sessionStorage.getItem(AUTH_STORAGE_KEY) === 'granted';
+  }
+
+  function setupAdminAuthentication() {
+    const lockScreen = document.getElementById('adminLockScreen');
+    const lockCard = document.getElementById('adminLockCard');
+    const form = document.getElementById('adminLoginForm');
+    const input = document.getElementById('adminPasswordInput');
+    const toggleBtn = document.getElementById('btnTogglePassword');
+    const eyeIcon = document.getElementById('eyeIcon');
+    const errorMsg = document.getElementById('lockErrorMsg');
+    const errorText = document.getElementById('lockErrorText');
+    const logoutBtn = document.getElementById('btnAdminLogout');
+
+    if (!lockScreen) return;
+
+    // Check if already authenticated in this session
+    if (isUserAuthenticated()) {
+      lockScreen.classList.add('hidden');
+    } else {
+      lockScreen.classList.remove('hidden');
+      setTimeout(() => input?.focus(), 200);
+    }
+
+    // Toggle show/hide password
+    toggleBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (!input) return;
+      if (input.type === 'password') {
+        input.type = 'text';
+        if (eyeIcon) eyeIcon.className = 'fa-solid fa-eye-slash';
+      } else {
+        input.type = 'password';
+        if (eyeIcon) eyeIcon.className = 'fa-solid fa-eye';
+      }
+    });
+
+    function validateAndUnlock() {
+      const entered = (input?.value || '').trim();
+      const validPasswords = ['Jigo$9094Pagal', 'jigo$9094pagal', 'Jigo$9094pagal', 'JIGO$9094PAGAL'];
+
+      if (validPasswords.includes(entered)) {
+        sessionStorage.setItem(AUTH_STORAGE_KEY, 'granted');
+        if (errorMsg) errorMsg.classList.remove('visible');
+        lockScreen.classList.add('hidden');
+        if (input) input.value = '';
+        showToast('Access Granted! Welcome to JK Lights Admin Portal 👑');
+        renderDashboard();
+        renderInvoicesTable();
+      } else {
+        if (errorMsg) {
+          if (errorText) errorText.textContent = entered ? 'Incorrect Password! Access Denied.' : 'Please enter the admin password.';
+          errorMsg.classList.add('visible');
+        }
+        if (lockCard) {
+          lockCard.classList.remove('shake-effect');
+          void lockCard.offsetWidth; // trigger reflow
+          lockCard.classList.add('shake-effect');
+        }
+        input?.focus();
+        input?.select();
+      }
+    }
+
+    // Form submit & unlock button
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      validateAndUnlock();
+    });
+
+    const unlockBtn = document.getElementById('btnUnlockAdmin');
+    unlockBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      validateAndUnlock();
+    });
+
+    input?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        validateAndUnlock();
+      }
+    });
+
+    // Logout / Lock
+    logoutBtn?.addEventListener('click', () => {
+      sessionStorage.removeItem(AUTH_STORAGE_KEY);
+      lockScreen.classList.remove('hidden');
+      if (input) {
+        input.value = '';
+        input.focus();
+      }
+      if (errorMsg) errorMsg.classList.remove('visible');
+      showToast('Admin session locked 🔒');
+    });
+  }
+
+  function startAdminApp() {
+    initAdmin();
     window.addEventListener('jk_store_updated', () => {
       renderDashboard();
       renderInvoicesTable();
@@ -1792,9 +1891,16 @@ Key benefits of magnetic track systems:
       renderInquiriesTable();
       loadSettingsForm();
     });
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startAdminApp);
+  } else {
+    startAdminApp();
+  }
 
   function initAdmin() {
+    setupAdminAuthentication();
     setupSidebarTabs();
     renderDashboard();
     renderInvoicesTable();
@@ -2200,7 +2306,7 @@ Key benefits of magnetic track systems:
                   <div class="inv-brand-title">JK LIGHTS</div>
                   <div class="inv-brand-sub">Lighting & A Brighter Tomorrow</div>
                   <div style="font-size: 0.75rem; color: #64748b; margin-top: 4px;">
-                    2nd Floor, VTC Complex, Above Kabir World, Kudasan, Gandhinagar - 382421<br />
+                    1st Floor, VTC Complex, B-108, above Kabir World, Kudasan, Gandhinagar, Gujarat 382421<br />
                     GSTIN: <strong>24AAACJ1234F1Z5</strong> | State: Gujarat (24) | Ph: +91 84605 76753
                   </div>
                 </div>

@@ -27,14 +27,20 @@ let currentSlideIndex = 0;
 let sliderInterval = null;
 const SLIDE_DURATION = 5500; // 5.5s autoplay
 
-document.addEventListener('DOMContentLoaded', () => {
+function startStorefront() {
   initStorefront();
 
   // Listen for real-time updates from Admin
   window.addEventListener('jk_store_updated', () => {
     refreshStorefront();
   });
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', startStorefront);
+} else {
+  startStorefront();
+}
 
 function initStorefront() {
   try {

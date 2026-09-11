@@ -5,8 +5,8 @@ export const DEFAULT_STORE_INFO = {
   name: "JK Lights",
   tagline: "Experience The Symphony of Luxury Illumination",
   city: "Gandhinagar, Gujarat",
-  address: "2nd Floor, VTC Complex (Vrundavan Trade Center), Above Kabir World, Reliance Cross Road, Kudasan, Gandhinagar - 382421",
-  landmark: "Above Kabir World, Opp. Kanam Farm",
+  address: "1st Floor, VTC Complex, B-108, above Kabir World, Kudasan, Gandhinagar, Gujarat 382421",
+  landmark: "B-108, Above Kabir World, Opp. Kanam Farm",
   phone: "+91 84605 76753",
   whatsapp: "918460576753",
   email: "contact@jklights.com",
@@ -2087,6 +2087,6 @@ export const DEFAULT_FAQS = [
   {
     id: "faq-5",
     question: "Where is the JK Lights showroom located in Gandhinagar?",
-    answer: "Our flagship showroom is located on the 2nd Floor, VTC Complex (Vrundavan Trade Center), Above Kabir World, Reliance Cross Road, Kudasan, Gandhinagar - 382421. Open Mon-Sat 10:00 AM - 9:30 PM & Sunday 11:00 AM - 8:00 PM."
+    answer: "Our flagship showroom is located at 1st Floor, VTC Complex, B-108, above Kabir World, Kudasan, Gandhinagar, Gujarat 382421. Open Mon-Sat 10:00 AM - 9:30 PM & Sunday 11:00 AM - 8:00 PM."
   }
 ];

@@ -20,10 +20,101 @@ import {
   resetToDefaults
 } from './store.js';
 
-let currentEditingProductId = null;
-let currentEditingSlideId = null;
+const ADMIN_SECRET_KEY = 'Jigo$9094Pagal';
+const AUTH_STORAGE_KEY = 'jk_lights_admin_auth_v1';
 
-document.addEventListener('DOMContentLoaded', () => {
+function isUserAuthenticated() {
+  return sessionStorage.getItem(AUTH_STORAGE_KEY) === 'granted';
+}
+
+function setupAdminAuthentication() {
+  const lockScreen = document.getElementById('adminLockScreen');
+  const lockCard = document.getElementById('adminLockCard');
+  const form = document.getElementById('adminLoginForm');
+  const input = document.getElementById('adminPasswordInput');
+  const toggleBtn = document.getElementById('btnTogglePassword');
+  const eyeIcon = document.getElementById('eyeIcon');
+  const errorMsg = document.getElementById('lockErrorMsg');
+  const errorText = document.getElementById('lockErrorText');
+  const logoutBtn = document.getElementById('btnAdminLogout');
+
+  if (!lockScreen) return;
+
+  if (isUserAuthenticated()) {
+    lockScreen.classList.add('hidden');
+  } else {
+    lockScreen.classList.remove('hidden');
+    setTimeout(() => input?.focus(), 200);
+  }
+
+  toggleBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (!input) return;
+    if (input.type === 'password') {
+      input.type = 'text';
+      if (eyeIcon) eyeIcon.className = 'fa-solid fa-eye-slash';
+    } else {
+      input.type = 'password';
+      if (eyeIcon) eyeIcon.className = 'fa-solid fa-eye';
+    }
+  });
+
+  function validateAndUnlock() {
+    const entered = (input?.value || '').trim();
+    const validPasswords = ['Jigo$9094Pagal', 'jigo$9094pagal', 'Jigo$9094pagal', 'JIGO$9094PAGAL'];
+
+    if (validPasswords.includes(entered)) {
+      sessionStorage.setItem(AUTH_STORAGE_KEY, 'granted');
+      if (errorMsg) errorMsg.classList.remove('visible');
+      lockScreen.classList.add('hidden');
+      if (input) input.value = '';
+      showToast('Access Granted! Welcome to JK Lights Admin Portal 👑');
+    } else {
+      if (errorMsg) {
+        if (errorText) errorText.textContent = entered ? 'Incorrect Password! Access Denied.' : 'Please enter the admin password.';
+        errorMsg.classList.add('visible');
+      }
+      if (lockCard) {
+        lockCard.classList.remove('shake-effect');
+        void lockCard.offsetWidth;
+        lockCard.classList.add('shake-effect');
+      }
+      input?.focus();
+      input?.select();
+    }
+  }
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    validateAndUnlock();
+  });
+
+  const unlockBtn = document.getElementById('btnUnlockAdmin');
+  unlockBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    validateAndUnlock();
+  });
+
+  input?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      validateAndUnlock();
+    }
+  });
+
+  logoutBtn?.addEventListener('click', () => {
+    sessionStorage.removeItem(AUTH_STORAGE_KEY);
+    lockScreen.classList.remove('hidden');
+    if (input) {
+      input.value = '';
+      input.focus();
+    }
+    if (errorMsg) errorMsg.classList.remove('visible');
+    showToast('Admin session locked 🔒');
+  });
+}
+
+function startAdmin() {
   initAdmin();
 
   window.addEventListener('jk_store_updated', () => {
@@ -33,9 +124,16 @@ document.addEventListener('DOMContentLoaded', () => {
     renderInquiriesTable();
     loadSettingsForm();
   });
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', startAdmin);
+} else {
+  startAdmin();
+}
 
 function initAdmin() {
+  setupAdminAuthentication();
   setupNavigationTabs();
   renderDashboard();
   renderProductsTable();

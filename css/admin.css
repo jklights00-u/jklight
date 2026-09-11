@@ -562,8 +562,8 @@ select option:hover {
    ============================================================ */
 .owners-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 24px;
   margin-top: 20px;
 }
 .owner-card {
@@ -834,6 +834,200 @@ select option:hover {
   .settings-grid {
     grid-template-columns: 1fr !important;
   }
+}
+
+/* ============================================================
+   ADMIN PASSWORD LOCK SCREEN & SECURITY PORTAL
+   ============================================================ */
+.admin-lock-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  background: radial-gradient(circle at center, #151822 0%, #08090c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(20px);
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.admin-lock-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.admin-lock-card {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(18, 20, 28, 0.95);
+  border: 1px solid var(--gold-border-bright);
+  border-radius: var(--radius-lg);
+  padding: 44px 36px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(212, 175, 55, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-lock-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--gold-400), #f9e295, var(--gold-400), transparent);
+}
+
+.lock-avatar-wrap {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.1);
+  border: 2px solid var(--gold-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--gold-400);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+  position: relative;
+}
+
+.lock-avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.admin-lock-title {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.admin-lock-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.lock-input-group {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.lock-input-group .lock-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold-400);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.lock-password-input {
+  width: 100%;
+  padding: 14px 44px 14px 44px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.lock-password-input:focus {
+  border-color: var(--gold-400);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.lock-toggle-visibility {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.lock-toggle-visibility:hover {
+  color: var(--gold-400);
+}
+
+.lock-error-msg {
+  color: #ef4444;
+  font-size: 0.82rem;
+  margin-bottom: 16px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.lock-error-msg.visible {
+  display: flex;
+}
+
+.shake-effect {
+  animation: shakeLock 0.4s ease-in-out;
+}
+
+@keyframes shakeLock {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.btn-unlock-admin {
+  width: 100%;
+  padding: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
+.lock-footer-links {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  font-size: 0.8rem;
+}
+
+.lock-footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.lock-footer-links a:hover {
+  color: var(--gold-400);
 }
 
 
