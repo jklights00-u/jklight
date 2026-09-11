@@ -2920,6 +2920,84 @@ select.form-control option:focus,
   color: #cbd5e1;
 }
 
+.owner-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  width: 100%;
+}
+
+.owner-btn-chat {
+  flex: 1;
+  min-width: 0;
+  height: 46px;
+  min-height: 46px;
+  max-height: 46px;
+  padding: 0 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  text-decoration: none;
+  background: var(--whatsapp);
+  color: #fff;
+  box-shadow: var(--whatsapp-glow);
+  transition: all var(--transition-normal);
+}
+
+.owner-btn-chat span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.owner-btn-chat i {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.owner-btn-chat:hover {
+  background: #20ba59;
+  box-shadow: 0 0 25px rgba(37, 211, 102, 0.6);
+  transform: translateY(-2px);
+}
+
+.owner-btn-call {
+  width: 46px;
+  min-width: 46px;
+  height: 46px;
+  min-height: 46px;
+  max-height: 46px;
+  padding: 0;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  backdrop-filter: blur(10px);
+  font-size: 1.05rem;
+  transition: all var(--transition-normal);
+}
+
+.owner-btn-call:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--gold-border);
+  color: var(--gold-300);
+  transform: translateY(-2px);
+}
+
+
 /* ============================================================
    CATEGORY-WISE CATALOG & FILTER BAR STYLES
    ============================================================ */
