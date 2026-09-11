@@ -1598,9 +1598,10 @@ Key benefits of magnetic track systems:
     saveCategory: (catData) => {
       const categories = AdminStore.getCategories();
       const cleanId = (catData.id || catData.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')).toLowerCase();
+      const targetId = catData.origId || cleanId;
       let updated;
-      if (categories.some(c => c.id === cleanId)) {
-        updated = categories.map(c => c.id === cleanId ? { ...c, ...catData, id: cleanId } : c);
+      if (categories.some(c => c.id === targetId || c.id === cleanId)) {
+        updated = categories.map(c => (c.id === targetId || c.id === cleanId) ? { ...c, ...catData, id: cleanId } : c);
       } else {
         const newCat = {
           id: cleanId,
@@ -1882,14 +1883,14 @@ Key benefits of magnetic track systems:
   function startAdminApp() {
     initAdmin();
     window.addEventListener('jk_store_updated', () => {
-      renderDashboard();
-      renderInvoicesTable();
-      renderProductsTable();
-      renderCategoriesTable();
-      renderSlidersTable();
-      renderBlogsTable();
-      renderInquiriesTable();
-      loadSettingsForm();
+      try { renderDashboard(); } catch (e) {}
+      try { renderInvoicesTable(); } catch (e) {}
+      try { renderProductsTable(); } catch (e) {}
+      try { renderCategoriesTable(); } catch (e) {}
+      try { renderSlidersTable(); } catch (e) {}
+      try { renderBlogsTable(); } catch (e) {}
+      try { renderInquiriesTable(); } catch (e) {}
+      try { loadSettingsForm(); } catch (e) {}
     });
   }
 
@@ -1900,24 +1901,66 @@ Key benefits of magnetic track systems:
   }
 
   function initAdmin() {
-    setupAdminAuthentication();
-    setupSidebarTabs();
-    renderDashboard();
-    renderInvoicesTable();
-    renderProductsTable();
-    renderCategoriesTable();
-    renderSlidersTable();
-    renderBlogsTable();
-    renderInquiriesTable();
-    loadSettingsForm();
-    setupProductModal();
-    setupCategoryModal();
-    setupSliderModal();
-    setupBlogModal();
-    setupBlogSearchAndFilter();
-    setupManualInvoiceModal();
-    setupSettingsForm();
-    setupGlobalActions();
+    try { setupAdminAuthentication(); } catch (e) { console.error('Auth setup error:', e); }
+    try { setupSidebarTabs(); } catch (e) { console.error('Tabs setup error:', e); }
+    try { renderDashboard(); } catch (e) { console.error('Dashboard render error:', e); }
+    try { renderInvoicesTable(); } catch (e) { console.error('Invoices render error:', e); }
+    try { renderProductsTable(); } catch (e) { console.error('Products render error:', e); }
+    try { renderCategoriesTable(); } catch (e) { console.error('Categories render error:', e); }
+    try { renderSlidersTable(); } catch (e) { console.error('Sliders render error:', e); }
+    try { renderBlogsTable(); } catch (e) { console.error('Blogs render error:', e); }
+    try { renderInquiriesTable(); } catch (e) { console.error('Inquiries render error:', e); }
+    try { loadSettingsForm(); } catch (e) { console.error('Settings load error:', e); }
+    try { setupProductModal(); } catch (e) { console.error('Product modal setup error:', e); }
+    try { setupCategoryModal(); } catch (e) { console.error('Category modal setup error:', e); }
+    try { setupSliderModal(); } catch (e) { console.error('Slider modal setup error:', e); }
+    try { setupBlogModal(); } catch (e) { console.error('Blog modal setup error:', e); }
+    try { setupBlogSearchAndFilter(); } catch (e) { console.error('Blog search error:', e); }
+    try { setupManualInvoiceModal(); } catch (e) { console.error('Manual invoice modal error:', e); }
+    try { setupSettingsForm(); } catch (e) { console.error('Settings form error:', e); }
+    try { setupGlobalActions(); } catch (e) { console.error('Global actions error:', e); }
+    try { setupUniversalModalHandlers(); } catch (e) { console.error('Universal modal error:', e); }
+  }
+
+  // Universal Modal Handlers (Close buttons, backdrop click, Escape key)
+  function setupUniversalModalHandlers() {
+    // 1. All close button elements (.modal-close-btn)
+    document.querySelectorAll('.modal-close-btn').forEach(btn => {
+      btn.onclick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const modal = btn.closest('.modal-backdrop');
+        if (modal) modal.classList.remove('active');
+      };
+    });
+
+    // 2. All cancel buttons across all modals
+    document.querySelectorAll('.modal-backdrop button').forEach(btn => {
+      const text = btn.textContent.trim().toLowerCase();
+      if (text === 'cancel' || text === 'close preview' || text === 'close') {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const modal = btn.closest('.modal-backdrop');
+          if (modal) modal.classList.remove('active');
+        });
+      }
+    });
+
+    // 3. Click on backdrop to close
+    document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+      backdrop.addEventListener('click', (e) => {
+        if (e.target === backdrop) {
+          backdrop.classList.remove('active');
+        }
+      });
+    });
+
+    // 4. Escape key closes active modals
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-backdrop.active').forEach(m => m.classList.remove('active'));
+      }
+    });
   }
 
   // Tabs
@@ -2586,6 +2629,7 @@ Key benefits of magnetic track systems:
     const modal = document.getElementById('productModal');
     const openBtn = document.getElementById('btnAddNewProduct');
     const closeBtn = document.getElementById('btnCloseProductModal');
+    const cancelBtn = document.getElementById('btnCancelProductModal');
     const form = document.getElementById('productForm');
     const imgInput = document.getElementById('productModalImageInput');
     const fileInput = document.getElementById('productModalFileInput');
@@ -2597,8 +2641,10 @@ Key benefits of magnetic track systems:
     populateCategoryDropdowns();
 
     function updatePreview(url) {
-      if (imgPreview) imgPreview.src = url || 'assets/products/chandelier-imperial-crown.jpg';
-      if (imgPathText) imgPathText.textContent = url ? (url.startsWith('data:') ? 'Custom Uploaded Photo' : url) : 'No image specified';
+      const fallback = 'assets/products/chandelier-imperial-crown.jpg';
+      const finalUrl = url || fallback;
+      if (imgPreview) imgPreview.src = finalUrl;
+      if (imgPathText) imgPathText.textContent = url ? (url.startsWith('data:') ? 'Custom Uploaded Photo' : url) : fallback;
     }
 
     imgInput?.addEventListener('input', () => updatePreview(imgInput.value));
@@ -2650,26 +2696,35 @@ Key benefits of magnetic track systems:
       document.getElementById('productModalTitle').textContent = 'Add New Lighting Fixture';
       form.reset();
       populateCategoryDropdowns();
+      if (imgInput) imgInput.value = 'assets/products/chandelier-imperial-crown.jpg';
+      if (form.elements['category']) form.elements['category'].value = 'chandeliers';
+      if (form.elements['room']) form.elements['room'].value = 'living';
+      if (form.elements['price']) form.elements['price'].value = '24999';
+      if (form.elements['originalPrice']) form.elements['originalPrice'].value = '34999';
+      if (form.elements['discount']) form.elements['discount'].value = '28% OFF';
+      if (form.elements['inStock']) form.elements['inStock'].checked = true;
+      if (form.elements['trending']) form.elements['trending'].checked = true;
       updatePreview('assets/products/chandelier-imperial-crown.jpg');
       modal.classList.add('active');
     });
 
     closeBtn?.addEventListener('click', () => modal.classList.remove('active'));
+    cancelBtn?.addEventListener('click', () => modal.classList.remove('active'));
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const formData = new FormData(form);
 
       const prodData = {
-        name: formData.get('name'),
-        category: formData.get('category'),
-        room: formData.get('room'),
+        name: (formData.get('name') || '').trim(),
+        category: formData.get('category') || 'chandeliers',
+        room: formData.get('room') || 'living',
         price: Number(formData.get('price')) || 0,
         originalPrice: formData.get('originalPrice') ? Number(formData.get('originalPrice')) : null,
-        discount: formData.get('discount') || '',
-        badge: formData.get('badge') || '',
-        image: formData.get('image'),
-        description: formData.get('description') || '',
+        discount: (formData.get('discount') || '').trim(),
+        badge: (formData.get('badge') || '').trim(),
+        image: (formData.get('image') || 'assets/products/chandelier-imperial-crown.jpg').trim(),
+        description: (formData.get('description') || '').trim(),
         inStock: formData.get('inStock') === 'on',
         trending: formData.get('trending') === 'on'
       };
@@ -2700,17 +2755,17 @@ Key benefits of magnetic track systems:
 
     populateCategoryDropdowns();
 
-    form.elements['name'].value = prod.name;
-    form.elements['category'].value = prod.category;
-    form.elements['room'].value = prod.room || 'living';
-    form.elements['price'].value = prod.price;
-    form.elements['originalPrice'].value = prod.originalPrice || '';
-    form.elements['discount'].value = prod.discount || '';
-    form.elements['badge'].value = prod.badge || '';
-    form.elements['image'].value = prod.image;
-    form.elements['description'].value = prod.description || '';
-    form.elements['inStock'].checked = prod.inStock !== false;
-    form.elements['trending'].checked = prod.trending !== false;
+    if (form.elements['name']) form.elements['name'].value = prod.name || '';
+    if (form.elements['category']) form.elements['category'].value = prod.category || 'chandeliers';
+    if (form.elements['room']) form.elements['room'].value = prod.room || 'living';
+    if (form.elements['price']) form.elements['price'].value = prod.price || 0;
+    if (form.elements['originalPrice']) form.elements['originalPrice'].value = prod.originalPrice || '';
+    if (form.elements['discount']) form.elements['discount'].value = prod.discount || '';
+    if (form.elements['badge']) form.elements['badge'].value = prod.badge || '';
+    if (form.elements['image']) form.elements['image'].value = prod.image || 'assets/products/chandelier-imperial-crown.jpg';
+    if (form.elements['description']) form.elements['description'].value = prod.description || '';
+    if (form.elements['inStock']) form.elements['inStock'].checked = prod.inStock !== false;
+    if (form.elements['trending']) form.elements['trending'].checked = prod.trending !== false;
 
     if (imgPreview) imgPreview.src = prod.image || 'assets/products/chandelier-imperial-crown.jpg';
     if (imgPathText) imgPathText.textContent = prod.image ? (prod.image.startsWith('data:') ? 'Custom Uploaded Photo' : prod.image) : '';
@@ -2804,6 +2859,7 @@ Key benefits of magnetic track systems:
     const modal = document.getElementById('categoryModal');
     const openBtn = document.getElementById('btnAddNewCategory');
     const closeBtn = document.getElementById('btnCloseCategoryModal');
+    const cancelBtn = document.getElementById('btnCancelCategoryModal');
     const form = document.getElementById('categoryForm');
     const nameInput = document.getElementById('categoryNameInput');
     const idInput = document.getElementById('categoryIdInput');
@@ -2815,8 +2871,10 @@ Key benefits of magnetic track systems:
     if (!modal || !form) return;
 
     function updateCatPreview(url) {
-      if (imgPreview) imgPreview.src = url || 'assets/products/chandelier-imperial-crown.jpg';
-      if (imgPathText) imgPathText.textContent = url ? (url.startsWith('data:') ? 'Custom Uploaded Icon' : url) : 'No icon specified';
+      const fallback = 'assets/products/chandelier-imperial-crown.jpg';
+      const finalUrl = url || fallback;
+      if (imgPreview) imgPreview.src = finalUrl;
+      if (imgPathText) imgPathText.textContent = url ? (url.startsWith('data:') ? 'Custom Uploaded Icon' : url) : fallback;
     }
 
     imgInput?.addEventListener('input', () => updateCatPreview(imgInput.value));
@@ -2857,22 +2915,32 @@ Key benefits of magnetic track systems:
       currentEditingCategoryId = null;
       document.getElementById('categoryModalTitle').textContent = 'Add New Category';
       form.reset();
-      if (idInput) idInput.readOnly = false;
+      if (idInput) {
+        idInput.readOnly = false;
+        idInput.value = '';
+      }
+      if (imgInput) imgInput.value = 'assets/products/chandelier-imperial-crown.jpg';
       updateCatPreview('assets/products/chandelier-imperial-crown.jpg');
       modal.classList.add('active');
     });
 
     closeBtn?.addEventListener('click', () => modal.classList.remove('active'));
+    cancelBtn?.addEventListener('click', () => modal.classList.remove('active'));
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const formData = new FormData(form);
 
+      const rawName = (formData.get('name') || '').trim();
+      let rawId = (formData.get('id') || rawName).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      if (!rawId) rawId = 'cat-' + Date.now();
+
       const catData = {
-        name: formData.get('name').trim(),
-        id: (formData.get('id') || formData.get('name')).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
-        icon: formData.get('icon') || 'assets/products/chandelier-imperial-crown.jpg',
-        desc: formData.get('desc') || ''
+        name: rawName,
+        id: rawId,
+        origId: currentEditingCategoryId,
+        icon: (formData.get('icon') || 'assets/products/chandelier-imperial-crown.jpg').trim(),
+        desc: (formData.get('desc') || '').trim()
       };
 
       AdminStore.saveCategory(catData);
@@ -2897,11 +2965,11 @@ Key benefits of magnetic track systems:
 
     document.getElementById('categoryModalTitle').textContent = `Edit Category: ${cat.name}`;
 
-    form.elements['name'].value = cat.name;
-    form.elements['id'].value = cat.id;
+    if (form.elements['name']) form.elements['name'].value = cat.name || '';
+    if (form.elements['id']) form.elements['id'].value = cat.id || '';
     if (idInput) idInput.readOnly = (cat.id === 'all');
-    form.elements['icon'].value = cat.icon || '';
-    form.elements['desc'].value = cat.desc || '';
+    if (form.elements['icon']) form.elements['icon'].value = cat.icon || 'assets/products/chandelier-imperial-crown.jpg';
+    if (form.elements['desc']) form.elements['desc'].value = cat.desc || '';
 
     if (imgPreview) imgPreview.src = cat.icon || 'assets/products/chandelier-imperial-crown.jpg';
     if (imgPathText) imgPathText.textContent = cat.icon || '';
@@ -2978,6 +3046,7 @@ Key benefits of magnetic track systems:
     const modal = document.getElementById('sliderModal');
     const openBtn = document.getElementById('btnAddNewSlide');
     const closeBtn = document.getElementById('btnCloseSliderModal');
+    const cancelBtn = document.getElementById('btnCancelSliderModal');
     const form = document.getElementById('sliderForm');
     const slideImgInput = document.getElementById('slideImageInput');
     const fileInput = document.getElementById('sliderModalFileInput');
@@ -2987,8 +3056,10 @@ Key benefits of magnetic track systems:
     if (!modal || !form) return;
 
     function updateSliderPreview(url) {
-      if (imgPreview) imgPreview.src = url || 'assets/hero.jpg';
-      if (imgPathText) imgPathText.textContent = url ? (url.startsWith('data:') ? 'Custom Uploaded Banner' : url) : 'assets/hero.jpg';
+      const fallback = 'assets/hero.jpg';
+      const finalUrl = url || fallback;
+      if (imgPreview) imgPreview.src = finalUrl;
+      if (imgPathText) imgPathText.textContent = url ? (url.startsWith('data:') ? 'Custom Uploaded Banner' : url) : fallback;
     }
 
     slideImgInput?.addEventListener('input', () => updateSliderPreview(slideImgInput.value));
@@ -3022,26 +3093,32 @@ Key benefits of magnetic track systems:
       currentEditingSlideId = null;
       document.getElementById('sliderModalTitle').textContent = 'Add New Hero Slide';
       form.reset();
+      if (slideImgInput) slideImgInput.value = 'assets/hero.jpg';
+      if (form.elements['order']) form.elements['order'].value = (AdminStore.getSliders().length + 1);
+      if (form.elements['btnText']) form.elements['btnText'].value = 'Explore Fixtures';
+      if (form.elements['btnLink']) form.elements['btnLink'].value = '#productsSection';
+      if (form.elements['active']) form.elements['active'].checked = true;
       updateSliderPreview('assets/hero.jpg');
       modal.classList.add('active');
     });
 
     closeBtn?.addEventListener('click', () => modal.classList.remove('active'));
+    cancelBtn?.addEventListener('click', () => modal.classList.remove('active'));
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const formData = new FormData(form);
 
       const slideData = {
-        title: formData.get('title'),
-        highlightText: formData.get('highlightText') || '',
-        badge: formData.get('badge') || '',
-        subtitle: formData.get('subtitle') || '',
-        image: formData.get('image'),
-        btnText: formData.get('btnText') || 'Explore Fixtures',
-        btnLink: formData.get('btnLink') || '#productsSection',
-        secondaryBtnText: formData.get('secondaryBtnText') || '',
-        secondaryBtnLink: formData.get('secondaryBtnLink') || '',
+        title: (formData.get('title') || '').trim(),
+        highlightText: (formData.get('highlightText') || '').trim(),
+        badge: (formData.get('badge') || '').trim(),
+        subtitle: (formData.get('subtitle') || '').trim(),
+        image: (formData.get('image') || 'assets/hero.jpg').trim(),
+        btnText: (formData.get('btnText') || 'Explore Fixtures').trim(),
+        btnLink: (formData.get('btnLink') || '#productsSection').trim(),
+        secondaryBtnText: (formData.get('secondaryBtnText') || '').trim(),
+        secondaryBtnLink: (formData.get('secondaryBtnLink') || '').trim(),
         order: Number(formData.get('order')) || 1,
         active: formData.get('active') === 'on'
       };
@@ -3068,17 +3145,17 @@ Key benefits of magnetic track systems:
     const imgPathText = document.getElementById('sliderModalImgPathText');
     document.getElementById('sliderModalTitle').textContent = 'Edit Hero Slide';
 
-    form.elements['title'].value = slide.title;
-    form.elements['highlightText'].value = slide.highlightText || '';
-    form.elements['badge'].value = slide.badge || '';
-    form.elements['subtitle'].value = slide.subtitle || '';
-    form.elements['image'].value = slide.image;
-    form.elements['btnText'].value = slide.btnText || '';
-    form.elements['btnLink'].value = slide.btnLink || '';
-    form.elements['secondaryBtnText'].value = slide.secondaryBtnText || '';
-    form.elements['secondaryBtnLink'].value = slide.secondaryBtnLink || '';
-    form.elements['order'].value = slide.order || 1;
-    form.elements['active'].checked = slide.active !== false;
+    if (form.elements['title']) form.elements['title'].value = slide.title || '';
+    if (form.elements['highlightText']) form.elements['highlightText'].value = slide.highlightText || '';
+    if (form.elements['badge']) form.elements['badge'].value = slide.badge || '';
+    if (form.elements['subtitle']) form.elements['subtitle'].value = slide.subtitle || '';
+    if (form.elements['image']) form.elements['image'].value = slide.image || 'assets/hero.jpg';
+    if (form.elements['btnText']) form.elements['btnText'].value = slide.btnText || '';
+    if (form.elements['btnLink']) form.elements['btnLink'].value = slide.btnLink || '';
+    if (form.elements['secondaryBtnText']) form.elements['secondaryBtnText'].value = slide.secondaryBtnText || '';
+    if (form.elements['secondaryBtnLink']) form.elements['secondaryBtnLink'].value = slide.secondaryBtnLink || '';
+    if (form.elements['order']) form.elements['order'].value = slide.order || 1;
+    if (form.elements['active']) form.elements['active'].checked = slide.active !== false;
 
     if (imgPreview) imgPreview.src = slide.image || 'assets/hero.jpg';
     if (imgPathText) imgPathText.textContent = slide.image ? (slide.image.startsWith('data:') ? 'Custom Uploaded Banner' : slide.image) : '';
@@ -3432,14 +3509,14 @@ Key benefits of magnetic track systems:
     const form = document.getElementById('storeSettingsForm');
     if (!form) return;
 
-    form.elements['name'].value = store.name || '';
-    form.elements['city'].value = store.city || '';
-    form.elements['address'].value = store.address || '';
-    form.elements['landmark'].value = store.landmark || '';
-    form.elements['whatsapp'].value = store.whatsapp || '';
-    form.elements['timingsWeekdays'].value = store.timingsWeekdays || '';
-    form.elements['timingsSunday'].value = store.timingsSunday || '';
-    form.elements['announcementText'].value = store.announcementText || '';
+    if (form.elements['name']) form.elements['name'].value = store.name || '';
+    if (form.elements['city']) form.elements['city'].value = store.city || '';
+    if (form.elements['address']) form.elements['address'].value = store.address || '';
+    if (form.elements['landmark']) form.elements['landmark'].value = store.landmark || '';
+    if (form.elements['whatsapp']) form.elements['whatsapp'].value = store.whatsapp || '';
+    if (form.elements['timingsWeekdays']) form.elements['timingsWeekdays'].value = store.timingsWeekdays || '';
+    if (form.elements['timingsSunday']) form.elements['timingsSunday'].value = store.timingsSunday || '';
+    if (form.elements['announcementText']) form.elements['announcementText'].value = store.announcementText || '';
     
     if (form.elements['showroomImage']) {
       const showroomImg = store.showroomImage || 'assets/showroom.jpg';
@@ -3501,15 +3578,15 @@ Key benefits of magnetic track systems:
       const formData = new FormData(form);
 
       const updated = {
-        name: formData.get('name'),
-        city: formData.get('city'),
-        address: formData.get('address'),
-        landmark: formData.get('landmark'),
-        whatsapp: formData.get('whatsapp'),
-        timingsWeekdays: formData.get('timingsWeekdays'),
-        timingsSunday: formData.get('timingsSunday'),
-        announcementText: formData.get('announcementText'),
-        showroomImage: formData.get('showroomImage') || 'assets/showroom.jpg'
+        name: (formData.get('name') || 'JK Lights').trim(),
+        city: (formData.get('city') || 'Gandhinagar, Gujarat').trim(),
+        address: (formData.get('address') || '').trim(),
+        landmark: (formData.get('landmark') || '').trim(),
+        whatsapp: (formData.get('whatsapp') || '918460576753').trim(),
+        timingsWeekdays: (formData.get('timingsWeekdays') || '').trim(),
+        timingsSunday: (formData.get('timingsSunday') || '').trim(),
+        announcementText: (formData.get('announcementText') || '').trim(),
+        showroomImage: (formData.get('showroomImage') || 'assets/showroom.jpg').trim()
       };
 
       AdminStore.updateStoreInfo(updated);
