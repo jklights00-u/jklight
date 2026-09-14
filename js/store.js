@@ -24,7 +24,7 @@ const STORAGE_KEYS = {
   STATS: 'jk_lights_stats'
 };
 
-const STORE_VERSION = 'jk_lights_v3_clean';
+const STORE_VERSION = 'jk_lights_v4_contact';
 
 export function initStore() {
   try {

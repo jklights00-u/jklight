@@ -173,7 +173,7 @@
               <i class="fa-solid fa-file-invoice-dollar" style="color: var(--gold-400);"></i>
             </div>
             <div>
-              <div class="metric-val" id="metricTotalInvoiced">â‚¹ 53,798</div>
+              <div class="metric-val" id="metricTotalInvoiced">₹ 53,798</div>
               <div class="metric-label">Total Invoiced</div>
             </div>
           </div>
@@ -262,7 +262,7 @@
               <i class="fa-solid fa-circle-check" style="color: #10b981;"></i>
             </div>
             <div>
-              <div class="metric-val" id="invMetricPaid">â‚¹ 15,336</div>
+              <div class="metric-val" id="invMetricPaid">₹ 15,336</div>
               <div class="metric-label">Paid Amount</div>
             </div>
           </div>
@@ -272,7 +272,7 @@
               <i class="fa-solid fa-clock" style="color: #f59e0b;"></i>
             </div>
             <div>
-              <div class="metric-val" id="invMetricPending">â‚¹ 38,462</div>
+              <div class="metric-val" id="invMetricPending">₹ 38,462</div>
               <div class="metric-label">Pending / Advance Balance</div>
             </div>
           </div>
@@ -686,6 +686,18 @@
 
             <div class="settings-grid">
               <div class="form-group">
+                <label class="form-label">Calling Phone Number</label>
+                <input type="text" name="phone" class="form-control" value="+91 84605 76753" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Official Email Address</label>
+                <input type="email" name="email" class="form-control" value="jklights00@gmail.com" required />
+              </div>
+            </div>
+
+            <div class="settings-grid">
+              <div class="form-group">
                 <label class="form-label">Landmark</label>
                 <input type="text" name="landmark" class="form-control" value="B-108, Above Kabir World, Opp. Kanam Farm" />
               </div>
@@ -754,7 +766,7 @@
                       title="Reset to default showroom image">
                       <i class="fa-solid fa-rotate-left"></i> Reset Default
                     </button>
-                    <span style="font-size: 0.75rem; color: var(--text-muted);">(Supports JPG, PNG, WEBP â€” automatically
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">(Supports JPG, PNG, WEBP — automatically
                       saved to browser storage)</span>
                   </div>
                 </div>
@@ -771,7 +783,7 @@
       <!-- Admin Footer -->
       <footer
         style="margin-top: 40px; padding: 20px 0; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.82rem; flex-wrap: wrap; gap: 12px;">
-        <div>Â© 2026 JK Lights Gandhinagar â€” Showroom Admin &amp; Billing Portal</div>
+        <div>&copy; 2026 JK Lights Gandhinagar — Showroom Admin &amp; Billing Portal</div>
         <div>Powered by <a href="#" target="_blank" rel="noopener"
             style="color: var(--gold-400); font-weight: 600; text-decoration: none;">Khushi Creative Tech</a></div>
       </footer>
@@ -862,9 +874,9 @@
             style="display: grid; grid-template-columns: 2.2fr 0.8fr 1fr 1fr 1.2fr 40px; gap: 12px; font-size: 0.75rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; font-weight: 600; padding: 0 4px;">
             <div>Fixture Name / Model</div>
             <div>Qty</div>
-            <div>Rate (â‚¹)</div>
-            <div>Discount (â‚¹)</div>
-            <div>Total (â‚¹)</div>
+            <div>Rate (₹)</div>
+            <div>Discount (₹)</div>
+            <div>Total (₹)</div>
             <div></div>
           </div>
 
@@ -877,19 +889,19 @@
         <div class="inv-calc-summary-card">
           <div class="inv-calc-row">
             <span>Taxable Subtotal (INR):</span>
-            <strong id="calcSubtotalText" style="color: #fff;">â‚¹ 0</strong>
+            <strong id="calcSubtotalText" style="color: #fff;">₹ 0</strong>
           </div>
           <div class="inv-calc-row">
             <span>CGST (9.0%):</span>
-            <span id="calcCgstText">â‚¹ 0.00</span>
+            <span id="calcCgstText">₹ 0.00</span>
           </div>
           <div class="inv-calc-row">
             <span>SGST (9.0%):</span>
-            <span id="calcSgstText">â‚¹ 0.00</span>
+            <span id="calcSgstText">₹ 0.00</span>
           </div>
           <div class="inv-calc-row grand-total">
             <span>Grand Total (Incl. 18% GST):</span>
-            <span id="calcGrandTotalText">â‚¹ 0</span>
+            <span id="calcGrandTotalText">₹ 0</span>
           </div>
         </div>
 
@@ -945,12 +957,12 @@
 
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
           <div class="form-group">
-            <label class="form-label">Price (â‚¹) *</label>
+            <label class="form-label">Price (₹) *</label>
             <input type="number" name="price" class="form-control" placeholder="24999" required />
           </div>
 
           <div class="form-group">
-            <label class="form-label">Original Price (â‚¹)</label>
+            <label class="form-label">Original Price (₹)</label>
             <input type="number" name="originalPrice" class="form-control" placeholder="35999" />
           </div>
 
@@ -992,7 +1004,7 @@
                 assets/products/chandelier-imperial-crown.jpg</div>
             </div>
           </div>
-          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">âš¡ Quick Image
+          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick Image
             Presets:</div>
           <div style="display: flex; flex-wrap: wrap; gap: 6px;" id="productModalImagePresets">
             <button type="button" class="btn btn-glass btn-sm js-img-preset"
@@ -1082,7 +1094,7 @@
           <div class="form-group">
             <label class="form-label">Badge Tag</label>
             <input type="text" name="badge" class="form-control"
-              placeholder="e.g. Special Showroom Offer ðŸ”¥ or Wall Light Collection âœ¨" />
+              placeholder="e.g. Special Showroom Offer 🔥 or Wall Light Collection ✨" />
           </div>
         </div>
 
@@ -1115,7 +1127,7 @@
                 </div>
               </div>
             </div>
-            <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">âš¡ Quick
+            <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick
               Banner Presets:</div>
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
               <button type="button" class="btn btn-glass btn-sm js-slide-preset" data-src="assets/hero.jpg"
@@ -1227,7 +1239,7 @@
                 assets/products/chandelier-imperial-crown.jpg</div>
             </div>
           </div>
-          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">âš¡ Quick
+          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick
             Presets:</div>
           <div style="display: flex; flex-wrap: wrap; gap: 6px;" id="categoryModalPresets">
             <button type="button" class="btn btn-glass btn-sm js-cat-preset"
@@ -1340,7 +1352,7 @@
                 assets/products/chandelier-imperial-crown.jpg</div>
             </div>
           </div>
-          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">âš¡ Quick Image
+          <div style="font-size: 0.75rem; color: var(--gold-400); margin-bottom: 6px; font-weight: 600;">⚡ Quick Image
             Presets:</div>
           <div style="display: flex; flex-wrap: wrap; gap: 6px;" id="blogModalImagePresets">
             <button type="button" class="btn btn-glass btn-sm js-blog-img-preset" data-src="assets/hero.jpg"

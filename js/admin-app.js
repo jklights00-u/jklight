@@ -13,7 +13,7 @@
     landmark: "B-108, Above Kabir World, Opp. Kanam Farm",
     phone: "+91 84605 76753",
     whatsapp: "918460576753",
-    email: "contact@jklights.com",
+    email: "jklights00@gmail.com",
     instagram: "https://www.instagram.com/jk_lights_gandhinagar?igsh=MXd1NG5zazA0bXY0Yw==",
     facebook: "https://www.facebook.com/jk_lights_gandhinagar",
     timingsWeekdays: "Mon - Sat: 10:00 AM - 9:30 PM",
@@ -1554,7 +1554,7 @@ Key benefits of magnetic track systems:
     STATS: 'jk_lights_stats'
   };
 
-  const STORE_VERSION = 'jk_lights_v3_clean';
+  const STORE_VERSION = 'jk_lights_v4_contact';
   try {
     const currentVer = localStorage.getItem('jk_lights_store_version');
     if (currentVer !== STORE_VERSION) {
@@ -3513,7 +3513,9 @@ Key benefits of magnetic track systems:
     if (form.elements['city']) form.elements['city'].value = store.city || '';
     if (form.elements['address']) form.elements['address'].value = store.address || '';
     if (form.elements['landmark']) form.elements['landmark'].value = store.landmark || '';
+    if (form.elements['phone']) form.elements['phone'].value = store.phone || '';
     if (form.elements['whatsapp']) form.elements['whatsapp'].value = store.whatsapp || '';
+    if (form.elements['email']) form.elements['email'].value = store.email || '';
     if (form.elements['timingsWeekdays']) form.elements['timingsWeekdays'].value = store.timingsWeekdays || '';
     if (form.elements['timingsSunday']) form.elements['timingsSunday'].value = store.timingsSunday || '';
     if (form.elements['announcementText']) form.elements['announcementText'].value = store.announcementText || '';
@@ -3582,7 +3584,9 @@ Key benefits of magnetic track systems:
         city: (formData.get('city') || 'Gandhinagar, Gujarat').trim(),
         address: (formData.get('address') || '').trim(),
         landmark: (formData.get('landmark') || '').trim(),
+        phone: (formData.get('phone') || '+91 84605 76753').trim(),
         whatsapp: (formData.get('whatsapp') || '918460576753').trim(),
+        email: (formData.get('email') || 'jklights00@gmail.com').trim(),
         timingsWeekdays: (formData.get('timingsWeekdays') || '').trim(),
         timingsSunday: (formData.get('timingsSunday') || '').trim(),
         announcementText: (formData.get('announcementText') || '').trim(),

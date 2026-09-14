@@ -9,7 +9,7 @@ export const DEFAULT_STORE_INFO = {
   landmark: "B-108, Above Kabir World, Opp. Kanam Farm",
   phone: "+91 84605 76753",
   whatsapp: "918460576753",
-  email: "contact@jklights.com",
+  email: "jklights00@gmail.com",
   instagram: "https://www.instagram.com/jk_lights_gandhinagar?igsh=MXd1NG5zazA0bXY0Yw==",
   facebook: "https://www.facebook.com/jk_lights_gandhinagar",
   timingsWeekdays: "Mon - Sat: 10:00 AM - 9:30 PM",

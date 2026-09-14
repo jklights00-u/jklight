@@ -14,7 +14,7 @@
     landmark: "B-108, Above Kabir World, Opp. Kanam Farm",
     phone: "+91 84605 76753",
     whatsapp: "918460576753",
-    email: "contact@jklights.com",
+    email: "jklights00@gmail.com",
     instagram: "https://www.instagram.com/jk_lights_gandhinagar?igsh=MXd1NG5zazA0bXY0Yw==",
     facebook: "https://www.facebook.com/jk_lights_gandhinagar",
     timingsWeekdays: "Mon - Sat: 10:00 AM - 9:30 PM",
@@ -1630,13 +1630,14 @@ Key benefits of magnetic track systems:
     STATS: 'jk_lights_stats'
   };
 
-  const STORE_VERSION = 'jk_lights_v2_categorized';
+  const STORE_VERSION = 'jk_lights_v4_contact';
   try {
     const currentVer = localStorage.getItem('jk_lights_store_version');
     if (currentVer !== STORE_VERSION) {
       localStorage.setItem(KEYS.PRODUCTS, JSON.stringify(DEFAULT_PRODUCTS));
       localStorage.setItem(KEYS.CATEGORIES, JSON.stringify(DEFAULT_CATEGORIES));
       localStorage.setItem(KEYS.ROOMS, JSON.stringify(DEFAULT_ROOMS));
+      localStorage.setItem(KEYS.STORE_INFO, JSON.stringify(DEFAULT_STORE_INFO));
       localStorage.setItem('jk_lights_store_version', STORE_VERSION);
     }
   } catch (e) {}
@@ -2227,6 +2228,30 @@ Key benefits of magnetic track systems:
       phoneEl.textContent = store.phone;
       phoneEl.href = `tel:${store.phone.replace(/\s+/g, '')}`;
     }
+
+    // Header & Footer Phone Numbers
+    document.querySelectorAll('.js-header-phone, .js-footer-phone').forEach(el => {
+      if (el.tagName === 'A') {
+        el.href = `tel:${store.phone.replace(/\s+/g, '')}`;
+        const span = el.querySelector('span');
+        if (span) span.textContent = store.phone;
+        else if (!el.querySelector('i')) el.textContent = store.phone;
+      } else {
+        el.textContent = store.phone;
+      }
+    });
+
+    // Footer Email IDs
+    document.querySelectorAll('.js-footer-email').forEach(el => {
+      if (el.tagName === 'A') {
+        el.href = `mailto:${store.email}`;
+        const span = el.querySelector('span');
+        if (span) span.textContent = store.email;
+        else if (!el.querySelector('i')) el.textContent = store.email;
+      } else {
+        el.textContent = store.email;
+      }
+    });
 
     const hoursEl = document.getElementById('showroomHoursText');
     if (hoursEl) hoursEl.textContent = `${store.timingsWeekdays} | ${store.timingsSunday}`;

@@ -103,6 +103,30 @@ function loadStoreDetails() {
     phoneEl.href = `tel:${store.phone.replace(/\s+/g, '')}`;
   }
 
+  // Header & Footer Phone Numbers
+  document.querySelectorAll('.js-header-phone, .js-footer-phone').forEach(el => {
+    if (el.tagName === 'A') {
+      el.href = `tel:${store.phone.replace(/\s+/g, '')}`;
+      const span = el.querySelector('span');
+      if (span) span.textContent = store.phone;
+      else if (!el.querySelector('i')) el.textContent = store.phone;
+    } else {
+      el.textContent = store.phone;
+    }
+  });
+
+  // Footer Email IDs
+  document.querySelectorAll('.js-footer-email').forEach(el => {
+    if (el.tagName === 'A') {
+      el.href = `mailto:${store.email}`;
+      const span = el.querySelector('span');
+      if (span) span.textContent = store.email;
+      else if (!el.querySelector('i')) el.textContent = store.email;
+    } else {
+      el.textContent = store.email;
+    }
+  });
+
   const hoursEl = document.getElementById('showroomHoursText');
   if (hoursEl) hoursEl.textContent = `${store.timingsWeekdays} | ${store.timingsSunday}`;
 

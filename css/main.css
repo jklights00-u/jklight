@@ -118,6 +118,40 @@
   gap: 6px;
 }
 
+.announcement-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--gold-300);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 3px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  transition: all var(--transition-fast);
+  letter-spacing: 0.02em;
+}
+
+.announcement-phone:hover {
+  background: var(--gold-500);
+  color: #000;
+  border-color: var(--gold-500);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+}
+
+.announcement-phone i {
+  color: var(--gold-400);
+  font-size: 0.78rem;
+  transition: color var(--transition-fast);
+}
+
+.announcement-phone:hover i {
+  color: #000;
+}
+
 .social-links {
   display: flex;
   align-items: center;
@@ -1914,6 +1948,42 @@
 
 .footer-links a:hover {
   color: var(--gold-400);
+}
+
+.footer-contact-info {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-contact-item {
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  transition: all var(--transition-fast);
+  word-break: break-all;
+}
+
+.footer-contact-item i {
+  color: var(--gold-400);
+  width: 16px;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.footer-contact-item:hover {
+  color: #fff;
+  transform: translateX(3px);
+}
+
+.footer-contact-item:hover i {
+  color: var(--gold-300);
+  transform: scale(1.15);
 }
 
 .footer-bottom {
